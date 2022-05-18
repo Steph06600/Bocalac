@@ -2,6 +2,7 @@
   <div class="editPost">
     <input v-model="post" type="text" placeholder="Ecrivez votre post" />
     <div class="buttons">
+      <p>{{ fileName }}</p>
       <div v-if="fileUrl" class="previewFile">
         <img :src="fileUrl" alt="" />
       </div>
@@ -23,6 +24,7 @@ export default {
   data() {
     return {
       fileUrl: null,
+      fileName: null,
       post: "",
     };
   },
@@ -30,6 +32,8 @@ export default {
     addFile(e) {
       let file = e.target.files[0];
       this.fileUrl = URL.createObjectURL(file);
+      let nameFile = e.target.files[0].name;
+      this.fileName = nameFile;
     },
   },
 };
@@ -183,7 +187,7 @@ table {
 }
 
 input {
-  width: 99%;
+  width: 100%;
   padding: 1%;
   border: 2px solid black;
   border-radius: 5px;
@@ -191,10 +195,15 @@ input {
 }
 
 .buttons {
-  width: 99%;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   gap: 20px;
+}
+
+.buttons p {
+  padding-top: 10px;
+  color: white;
 }
 
 .inputFile {
@@ -238,7 +247,7 @@ button {
   padding: 0 2%;
   background: white;
   border: 2px solid #5adfbc;
-  border-radius: 5px;
+  border-radius: 10px;
   color: #474e58;
 }
 </style>
