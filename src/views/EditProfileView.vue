@@ -1,18 +1,16 @@
 <template>
-  <div>
-    <HeaderBar></HeaderBar>
-    <h1>actu</h1>
-    <EditPost />
-  </div>
+  <HeaderBar></HeaderBar>
+  <ModifProfile></ModifProfile>
 </template>
 
 <script>
-import EditPost from "@/components/EditPost.vue";
 import HeaderBar from "@/components/HeaderBar.vue";
+import ModifProfile from "@/components/ModifProfile.vue";
+
 export default {
   components: {
-    EditPost,
     HeaderBar,
+    ModifProfile,
   },
 };
 </script>

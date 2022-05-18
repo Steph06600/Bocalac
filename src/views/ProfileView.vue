@@ -7,12 +7,11 @@
 </template>
 
 <script>
-import Comments from "@/components/Comments.vue";
 import Postcontainer from "@/components/Postcontainer.vue";
+
 export default {
   components: {
     Postcontainer,
-    Comments,
   },
 };
 </script>
