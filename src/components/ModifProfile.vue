@@ -1,6 +1,5 @@
 <template>
   <!-- <navBar></navBar> -->
-  <navBar></navBar>
   <!-- <nav v-show="page == 'profile'">
     <img src="" alt="" />
     <p>Logo</p>
@@ -41,10 +40,10 @@
 </template>
 
 <script>
-import navBar from "@/components/navBar.vue";
+import HeaderBar from "@/components/HeaderBar.vue";
 export default {
   components: {
-    navBar,
+    HeaderBar,
   },
   methods: {
     changePageToEdit() {
