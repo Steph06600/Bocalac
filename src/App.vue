@@ -5,7 +5,6 @@
       <router-link to="/profile">profile</router-link> <br />
       <router-link to="/actus">actu</router-link>
     </nav>
-    <h1>home</h1>
     <router-view />
   </div>
 </template>
