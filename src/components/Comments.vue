@@ -4,8 +4,8 @@
       <div class="Profil">
         <img src="" />
         <div>
-          <p>Pseudo{{ pseudo }}</p>
-          <p class="date">Il y 1h {{ heure - du - commentaire }}</p>
+          <p>Pseudo{{}}</p>
+          <p class="date">Il y 1h {{}}</p>
         </div>
       </div>
       <div>
@@ -14,13 +14,7 @@
     </div>
 
     <div class="comment">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo impedit
-        repellat qui deleniti similique consequatur ea deserunt excepturi fugit
-        error dolore, nam reiciendis natus tenetur? Assumenda consectetur
-        similique quia aliquid!
-      </p>
-      <p>{{ futur - comments }}</p>
+      <p>{{ post }}</p>
     </div>
 
     <div class="bottomComment">
@@ -56,7 +50,9 @@ export default {
     };
   },
 
-  props: {},
+  props: {
+    post: String,
+  },
 
   methods: {
     addLike() {

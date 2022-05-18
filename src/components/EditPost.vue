@@ -25,7 +25,6 @@ export default {
     return {
       fileUrl: null,
       fileName: null,
-      post: "",
     };
   },
   methods: {
