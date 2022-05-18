@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 import ActuView from "@/views/ActuView.vue";
-import Logview from "@/views/LogView.vue";
+import LogView from "@/views/LogView.vue";
 import ProfileView from "@/views/ProfileView.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: Logview,
+    component: LogView,
   },
   {
     path: "/actus",
