@@ -1,17 +1,5 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <ActuView msg="Welcome to Your Vue.js App" />
+  <div>
+    <h1>actu</h1>
   </div>
 </template>
-
-<script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
-export default {
-  components: {
-    ActuView,
-  },
-};
-</script>
