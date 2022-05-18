@@ -1,17 +1,14 @@
 <template>
-  <div class="myProfile">
-    <h1>profil</h1>
-
-    <Postcontainer />
+  <div>
+    <Comments />
   </div>
 </template>
 
 <script>
 import Comments from "@/components/Comments.vue";
-import Postcontainer from "@/components/Postcontainer.vue";
 export default {
+  name: "",
   components: {
-    Postcontainer,
     Comments,
   },
 };
