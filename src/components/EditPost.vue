@@ -1,31 +1,45 @@
 <template>
-  <div class="editPost">
-    <input v-model="post" type="text" placeholder="Ecrivez votre post" />
-    <div class="buttons">
-      <p>{{ fileName }}</p>
-      <div v-if="fileUrl" class="previewFile">
-        <img :src="fileUrl" alt="" />
+  <div>
+    <Login />
+    <Register />
+    <div class="editPost">
+      <input v-model="post" type="text" placeholder="Ecrivez votre post" />
+      <div class="buttons">
+        <p>{{ fileName }}</p>
+        <div v-if="fileUrl" class="previewFile">
+          <img :src="fileUrl" alt="" />
+        </div>
+        <div class="img">
+          <input @change="addFile" id="file" class="inputFile" type="file" />
+          <label for="file" class="trombone">
+            <img src="../assets/img/trombone48.png" alt="" />
+          </label>
+        </div>
+        <button @click="publish">Publier</button>
       </div>
-
-      <div class="img">
-        <input @change="addFile" id="file" class="inputFile" type="file" />
-        <label for="file" class="trombone">
-          <img src="../assets/img/trombone48.png" alt="" />
-        </label>
-      </div>
-
-      <button>Publier</button>
     </div>
   </div>
 </template>
 
 <script>
+import Login from "@/components/Login.vue";
+import Register from "@/components/Register.vue";
 export default {
+  components: {
+    Login,
+    Register,
+  },
+
   data() {
     return {
       fileUrl: null,
       fileName: null,
+      title: "",
       post: "",
+      result: null,
+      token: localStorage.getItem("token"),
+
+      // arrayPost: [],
     };
   },
   methods: {
@@ -34,6 +48,34 @@ export default {
       this.fileUrl = URL.createObjectURL(file);
       let nameFile = e.target.files[0].name;
       this.fileName = nameFile;
+    },
+    // addPost() {
+    //   this.arrayPost.push(this.post);
+    //   console.log(this.arrayPost);
+    //   this.post = "";
+    // },
+    async publish() {
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "bearer " + localStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          title: "toto",
+          content: this.post,
+        }),
+      };
+
+      const response = await fetch(
+        "https://social-network-api.osc-fr1.scalingo.io/bocalac/post",
+        options
+      );
+
+      const data = await response.json();
+
+      console.log(response);
+      console.log(data);
     },
   },
 };
