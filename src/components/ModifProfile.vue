@@ -66,7 +66,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #modificationContainer {
   position: relative;
   flex-direction: column;
