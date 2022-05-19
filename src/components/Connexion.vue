@@ -41,7 +41,7 @@
       <!-- formulaire d'inscription -->
       <section id="inscription">
         <div v-show="show" class="logForm">
-          <form @submit.prevent="onSubmit" class="form">
+          <form @submit.prevent="onSubmit" class="formInscription">
             <div class="logoTextBocalac">
               <img
                 src="../assets/img/bocalacTextWhite.png"
@@ -254,7 +254,7 @@ export default {
   background-color: white;
 }
 
-/* Hover sur  "inscris toi" paragraph */
+/* Hover sur  "inscris toi" paragraphe */
 
 .animationHover {
   box-shadow: inset 0 0 0 0 #5adfbc;
@@ -262,6 +262,7 @@ export default {
   padding: 0 0.25rem;
   margin: 0 -0.25rem;
   transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 10px;
 }
 .animationHover:hover {
   color: #474e58;
@@ -281,6 +282,16 @@ export default {
 }
 
 /* style formulaired d'inscription */
+
+.formInscription {
+  border: solid 1px white;
+  text-align: center;
+  width: 420px;
+  height: 570px;
+  border-radius: 10px;
+  background-color: #474e58;
+}
+
 .linkInscription {
   margin-bottom: 40px;
 }
