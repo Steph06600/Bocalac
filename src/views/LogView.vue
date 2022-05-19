@@ -1,5 +1,14 @@
 <template>
   <div class="home">
-    <h1>log</h1>
+    <Connexion></Connexion>
   </div>
 </template>
+
+<script>
+import Connexion from "@/components/Connexion.vue";
+export default {
+  components: {
+    Connexion,
+  },
+};
+</script>
