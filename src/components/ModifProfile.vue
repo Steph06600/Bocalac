@@ -40,11 +40,7 @@
 </template>
 
 <script>
-import HeaderBar from "@/components/HeaderBar.vue";
 export default {
-  components: {
-    HeaderBar,
-  },
   methods: {
     changePageToEdit() {
       this.page = "edit";
@@ -70,7 +66,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #modificationContainer {
   position: relative;
   flex-direction: column;

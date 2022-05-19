@@ -1,6 +1,5 @@
 <template>
   <div id="mainContainer">
-    <!-- Formulaire de connexion -->
     <form @submit.prevent="login">
       <div class="input-container">
         <label for="emailInput1">Email : </label>
@@ -99,7 +98,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #mainContainer {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;

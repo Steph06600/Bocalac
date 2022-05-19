@@ -11,7 +11,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 nav {
   display: flex;
   align-items: center;
