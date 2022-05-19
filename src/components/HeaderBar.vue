@@ -65,7 +65,7 @@ input {
 }
 
 .setting {
-  width: 10%;
+  width: 10% !important;
   float: right;
   margin-right: 4%;
   border: 2px solid white;
