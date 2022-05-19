@@ -10,7 +10,7 @@
       </div>
 
       <div v-show="!show" class="logForm">
-        <form @submit.prevent="onSubmit" class="form">
+        <form @submit.prevent="login" class="form">
           <div class="logoTextBocalac">
             <img
               src="../assets/img/bocalacTextWhite.png"
@@ -18,14 +18,15 @@
             />
           </div>
 
-          <label class="alignPseudo" for="pseudo">Pseudo </label> <br />
-          <input type="text" id="pseudo" /> <br />
+          <label class="alignPseudo" for="pseudo">Email </label> <br />
+          <input type="email" id="pseudo" v-model="email" required /> <br />
 
           <div class="alignMdpForgetMdp">
             <label class="labelMdp" for="mdp">Mot de passe </label>
             <a href="">Mot de passe oublié? </a>
           </div>
-          <input type="password" name="mdp" id="mdp" /> <br />
+          <input type="password" name="mdp" id="mdp" v-model="mdp" required />
+          <br />
 
           <button type="submit">Valider</button>
           <br />
@@ -35,18 +36,29 @@
               Tu n'as pas de compte? Inscris-toi.
             </p>
           </div>
+
+          <p v-if="result === true" class="success">
+            Connexion réussie
+            <br />
+            Token: {{ token }}
+          </p>
+          <p v-else-if="result === false" class="error">Connexion échouée</p>
         </form>
       </div>
 
       <!-- formulaire d'inscription -->
       <section id="inscription">
         <div v-show="show" class="logForm">
-          <form @submit.prevent="onSubmit" class="formInscription">
+          <form @submit.prevent="inscription" class="formInscription">
             <div class="logoTextBocalac">
               <img
                 src="../assets/img/bocalacTextWhite.png"
                 alt="bocalacTextBlack"
               />
+            </div>
+
+            <div class="backToConnexion">
+              <p @click="show = !show">CTRL+Z</p>
             </div>
 
             <label class="mailStyle" for="mail">Mail </label> <br />
@@ -56,6 +68,7 @@
               id="mail"
               :class="isEmailValid ? 'valid' : 'error'"
               v-model="mail"
+              required
             />
 
             <p
@@ -66,21 +79,30 @@
             </p>
 
             <label class="pseudoInscription" for="pseudoInscription"
-              >Pseudo
+              >Nom
             </label>
             <br />
             <input
               type="text"
-              id="pseudoInscription"
-              :class="isUsernameValid ? 'valid' : 'error'"
-              v-model="pseudoInscription"
+              id="nomInscription"
+              v-model="nomInscription"
+              :class="isLastNameValid"
+              required
             />
-            <p
-              class="textVerification"
-              v-show="!isUsernameValid && this.pseudoInscription.length >= 1"
-            >
-              Un nom d'utilisateur doit être compris entre 8 et 16 caractères.
-            </p>
+
+            <br />
+
+            <label class="pseudoInscription" for="pseudoInscription"
+              >Prénom
+            </label>
+            <br />
+            <input
+              type="text"
+              id="prenomInscription"
+              v-model="prenomInscription"
+              :class="isFirstNameValid"
+              required
+            />
 
             <br />
 
@@ -92,13 +114,14 @@
               id="createMdp"
               :class="isPasswordValid ? 'valid' : 'error'"
               v-model="createMdp"
+              required
             />
             <p
               class="textVerification"
               v-show="!isPasswordValid && this.createMdp.length >= 1"
             >
               Un mot de passe doit faire au moins 8 caractères dont une lettre
-              majuscule et un chiffre
+              majuscule et un chiffre.
             </p>
             <br />
 
@@ -117,10 +140,10 @@
               class="textVerification"
               v-show="verifyPassword == false && this.confirmMdp.length >= 1"
             >
-              Veuillez entrer le même mot de passe
+              Veuillez entrer le même mot de passe.
             </p>
             <p class="textVerificationGreen" v-show="verifyPassword == true">
-              Correct
+              Mot de passe identique.
             </p>
 
             <br />
@@ -128,7 +151,8 @@
             <button
               v-show="
                 isEmailValid &&
-                isUsernameValid &&
+                isLastNameValid &&
+                isFirstNameValid &&
                 isPasswordValid &&
                 verifyPassword
               "
@@ -149,11 +173,73 @@ export default {
   data() {
     return {
       show: false,
+      // connexion data
+      email: "",
+      mdp: "",
+      result: null,
+      token: "",
+      // inscription data
       mail: "",
-      pseudoInscription: "",
+      nomInscription: "",
+      prenomInscription: "",
       createMdp: "",
       confirmMdp: "",
     };
+  },
+
+  // inscription
+  methods: {
+    async inscription() {
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          mail: this.mail,
+          nomInscription: this.nomInscription,
+          prenomInscription: this.prenomInscription,
+          createMdp: this.createMdp,
+        }),
+      };
+
+      const response = await fetch(
+        "https://social-network-api.osc-fr1.scalingo.io/bocalac/register",
+        options
+      );
+
+      const data = await response.json();
+
+      console.log(data);
+    },
+    // Connexion
+    async login() {
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: this.email,
+          mdp: this.mdp,
+        }),
+      };
+
+      const response = await fetch(
+        "https://social-network-api.osc-fr1.scalingo.io/bocalac/login",
+        options
+      );
+
+      const data = await response.json();
+
+      this.result = data.success;
+      if (data.success === true) {
+        this.token = data.token;
+        localStorage.setItem("token", this.token);
+      }
+
+      // localStorage token
+    },
   },
 
   computed: {
@@ -162,9 +248,14 @@ export default {
       return regex.test(this.mail);
     },
 
-    isUsernameValid() {
-      const length = this.pseudoInscription.length;
-      return length >= 8 && length <= 16;
+    isFirstNameValid() {
+      const length = this.nomInscription.length;
+      return length >= 1;
+    },
+
+    isLastNameValid() {
+      const length = this.prenomInscription.length;
+      return length >= 1;
     },
 
     isPasswordValid() {
@@ -205,7 +296,7 @@ export default {
   width: 230px;
   height: 40px;
   padding-top: 40px;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
 }
 
 .form {
@@ -287,7 +378,7 @@ export default {
   border: solid 1px white;
   text-align: center;
   width: 420px;
-  height: 570px;
+  height: 670px;
   border-radius: 10px;
   background-color: #474e58;
 }
@@ -300,6 +391,37 @@ export default {
   color: #5adfbc;
 }
 
+/* animation hover ctrl+z */
+
+.backToConnexion {
+  box-shadow: inset 0 0 0 0 #5adfbc;
+  color: #5adfbc;
+  padding: 0 0.25rem;
+  margin: 0 -0.25rem;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.backToConnexion:hover {
+  color: #474e58;
+  box-shadow: inset 95px 0 0 0 #5adfbc;
+}
+
+.backToConnexion {
+  color: #5adfbc;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: initial;
+  margin-left: 160px;
+  margin-bottom: 30px;
+  margin-top: 0px;
+  letter-spacing: 1px;
+}
+.backToConnexion p {
+  margin-top: 0px;
+}
+
+/* fin animation */
 .mailStyle {
   color: white;
   margin-right: 17rem;
@@ -324,7 +446,16 @@ export default {
   padding-top: 5px;
 }
 
-#pseudoInscription {
+#nomInscription {
+  width: 300px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: solid 3px black;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+#prenomInscription {
   width: 300px;
   margin-bottom: 20px;
   border-radius: 10px;
