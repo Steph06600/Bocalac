@@ -30,7 +30,7 @@
         <p>{{ dislike }}</p>
       </div>
       <div class="buttonBottomRight">
-        <button>Commenter</button>
+        <button @click="getpost">Commenter</button>
         <button>Partager</button>
       </div>
     </div>
@@ -47,6 +47,10 @@ export default {
       comments: "",
       like: 0,
       dislike: 0,
+      posts: [],
+      page: null,
+      totalPages: null,
+      message: "",
     };
   },
 
@@ -61,6 +65,31 @@ export default {
 
     addDislike() {
       this.dislike += 1;
+    },
+
+    async getpost() {
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: {
+          posts: this.post,
+          page: this.page,
+          totalPages: this.totalPages,
+          message: this.message,
+        },
+      };
+
+      const response = await fetch(
+        "https://social-network-api.osc-fr1.scalingo.io/bocalac/posts",
+        options
+      );
+
+      const data = await response.json();
+
+      console.log(response);
+      console.log(data);
     },
   },
 };
