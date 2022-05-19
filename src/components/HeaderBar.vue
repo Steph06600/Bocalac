@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <img src="@/assets/canardBocalacContours.png" alt="" />
+    <img src="../assets/img/canardBocalacContours.png" alt="" />
     <input type="text" placeholder="Rechercher" />
     <div id="picture">
       <div>Photo</div>
