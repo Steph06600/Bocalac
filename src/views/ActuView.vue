@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HeaderBar></HeaderBar>
     <h1>actu</h1>
     <EditPost />
   </div>

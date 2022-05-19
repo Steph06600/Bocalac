@@ -1,16 +1,7 @@
 <template>
-  <!-- <navBar></navBar> -->
-  <!-- <nav v-show="page == 'profile'">
-    <img src="" alt="" />
-    <p>Logo</p>
-    <input type="text" placeholder="Rechercher" />
-    <p @click="changePageToEdit">Photo de profil</p>
-  </nav> -->
-  <section id="modificationContainer" v-show="page == 'edit'">
+  <section id="modificationContainer">
     <div id="titleModif">
       <h1 id="title">MODIFICATION DU PROFIL</h1>
-      <!-- <button @click="changePageToProfile">X</button> -->
-      <button v-show="changePageToProfile">X</button>
     </div>
     <div id="blocEditPhotoNom">
       <div id="photoContainer">
@@ -34,7 +25,7 @@
         </div>
       </div>
     </div>
-    <button id="buttonSave" @click="saveData">ENREGISTRER</button>
+    <button id="buttonSave">ENREGISTRER</button>
     <p>Vous avez enregistré</p>
   </section>
 </template>
@@ -54,7 +45,7 @@ export default {
   },
   data() {
     return {
-      closeEditProfile: true,
+      // closeEditProfile: true,
       page: "profile",
       profilePicture: "",
       lastname: "",
