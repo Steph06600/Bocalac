@@ -6,18 +6,27 @@
       <div>Photo</div>
     </div>
   </nav>
+  <div v-show="modifProfile">{{ ModifProfile }}</div>
 </template>
 <script>
-export default {};
+import ModifProfile from "@/components//ModifProfile.vue";
+
+export default {
+  name: "HeaderBar",
+  components: {
+    ModifProfile,
+  },
+};
 </script>
 
 <style scoped>
 nav {
   display: flex;
   align-items: center;
-  background-color: #c4c4c4;
+  background-color: #000000;
   padding: 12px;
   margin: -8px;
+  border-bottom: px solid #5adfbc;
 }
 img {
   width: 40px;
@@ -35,7 +44,7 @@ nav #picture {
   background: white;
   height: 40px;
   width: 40px;
-  border: 1px solid #474e58;
+  border: 2px solid #5adfbc;
   line-height: 40px;
   position: absolute;
   right: 0px;
