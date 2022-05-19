@@ -32,17 +32,16 @@
 
 <script>
 export default {
-  methods: {
-    changePageToEdit() {
-      this.page = "edit";
-    },
+  name: "ModifProfile",
+  // methods: {
+  //   changePageToModifProfile() {
+  //     this.page = "edit";
+  //   },
+  // changePageToProfile() {
+  //   this.page = "profile";
+  // },
+  /* SAUVEGARDE DES DONNEES */
 
-    changePageToProfile() {
-      this.page = "profile";
-    },
-
-    /* SAUVEGARDE DES DONNEES */
-  },
   data() {
     return {
       // closeEditProfile: true,
