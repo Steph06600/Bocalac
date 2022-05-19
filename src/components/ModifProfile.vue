@@ -40,11 +40,7 @@
 </template>
 
 <script>
-import HeaderBar from "@/components/HeaderBar.vue";
 export default {
-  components: {
-    HeaderBar,
-  },
   methods: {
     changePageToEdit() {
       this.page = "edit";
