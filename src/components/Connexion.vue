@@ -4,7 +4,7 @@
     <section id="logging">
       <div class="logoBocalac">
         <img
-          src="../assets/images/canardBocalacContours.png"
+          src="../assets/img/canardBocalacContours.png"
           alt="canardBocalacContours"
         />
       </div>
@@ -13,7 +13,7 @@
         <form @submit.prevent="onSubmit" class="form">
           <div class="logoTextBocalac">
             <img
-              src="../assets/images/bocalacTextWhite.png"
+              src="../assets/img/bocalacTextWhite.png"
               alt="bocalacTextBlack"
             />
           </div>
@@ -44,7 +44,7 @@
           <form @submit.prevent="onSubmit" class="form">
             <div class="logoTextBocalac">
               <img
-                src="../assets/images/bocalacTextWhite.png"
+                src="../assets/img/bocalacTextWhite.png"
                 alt="bocalacTextBlack"
               />
             </div>
