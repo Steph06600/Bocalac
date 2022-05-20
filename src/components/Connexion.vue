@@ -249,6 +249,28 @@ export default {
 
       this.email = "";
       this.mdp = "";
+
+      this.getUser();
+    },
+
+    async getUser() {
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "bearer " + localStorage.getItem("token"),
+        },
+      };
+
+      const response = await fetch(
+        "https://social-network-api.osc-fr1.scalingo.io/bocalac/user",
+        options
+      );
+
+      const data = await response.json();
+
+      console.log(response);
+      console.log(data);
     },
   },
 
