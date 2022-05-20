@@ -1,28 +1,13 @@
 <template>
-  <div>
-    <h1>actu</h1>
-    <EditPost />
-    <HeaderBar></HeaderBar>
-    <div class="mainContainerActu">
-      <div class="containerActu">
-        <h1>ACTUALITES</h1>
-        <EditPost />
-      </div>
-      <AsideBar></AsideBar>
-    </div>
-  </div>
+  <Postcontainer />
 </template>
 
 <script>
-import EditPost from "@/components/EditPost.vue";
-import HeaderBar from "@/components/HeaderBar.vue";
-import AsideBar from "@/components/AsideBar.vue";
+import Postcontainer from "@/components/Postcontainer.vue";
 
 export default {
   components: {
-    EditPost,
-    HeaderBar,
-    AsideBar,
+    Postcontainer,
   },
 };
 </script>
