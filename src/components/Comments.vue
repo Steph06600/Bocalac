@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <button class="clickbtn" @click="getpost">Commenter</button>
+    <button class="clickbtn" @click="getpost">Afficher les posts</button>
     <div class="all" v-for="element in posts" :key="element.id">
       <div class="topComment">
         <div class="Profil">
@@ -162,7 +162,7 @@ export default {
 }
 
 .clickbtn {
-  width: 10%;
+  width: 15%;
 }
 /*  TOP  */
 .topComment {
@@ -232,7 +232,8 @@ button {
 }
 
 .buttonBottomRight {
-  position: relative;
-  top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 </style>
