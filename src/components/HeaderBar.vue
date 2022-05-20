@@ -29,6 +29,10 @@ export default {
 </script>
 
 <style scoped>
+.headerBar {
+  height: 69px;
+}
+
 nav {
   display: flex;
   align-items: center;

@@ -9,6 +9,7 @@
 <script>
 import HeaderBar from "@/components/HeaderBar.vue";
 import AsideBar from "@/components/AsideBar.vue";
+
 const App = {
   components: {
     HeaderBar,
