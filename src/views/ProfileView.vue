@@ -76,6 +76,7 @@ export default {
   border: 2px solid black;
   border-radius: 50%;
   background-color: bisque;
+  cursor: pointer;
 }
 
 .statut {
