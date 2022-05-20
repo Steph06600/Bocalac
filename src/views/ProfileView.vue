@@ -5,7 +5,17 @@
       <ModifProfile v-show="page == 'edit'"></ModifProfile>
     </div>
     <div v-show="page == 'profile'">
-      <p @click="changePageToEdit">Photo de profil</p>
+      <div class="infosProfil">
+        <div class="pdp" @click="changePageToEdit"></div>
+        <div class="textInfosProfil">
+          <p>Nom Prénom</p>
+          <div class="statut">
+            <p>Statut</p>
+            <div class="pastilleStatut">vert</div>
+          </div>
+          <p>Ceci est une petite description / biographie</p>
+        </div>
+      </div>
       <Postcontainer />
     </div>
   </div>
@@ -47,8 +57,37 @@ export default {
 </script>
 
 <style scoped>
+.infosProfil {
+  display: flex;
+  gap: 20px;
+  margin: 3%;
+}
+
+.textInfosProfil {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.pdp {
+  width: 110px;
+  height: 110px;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: bisque;
+  cursor: pointer;
+}
+
+.statut {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 p {
   cursor: pointer;
+  margin: 0;
 }
 
 .content {
