@@ -1,5 +1,5 @@
 <template>
-  <div class="myProfile">
+  <div class="content">
     <div>
       <button v-show="page == 'edit'" @click="changePageToProfile">X</button>
       <ModifProfile v-show="page == 'edit'"></ModifProfile>
@@ -49,6 +49,10 @@ export default {
 <style scoped>
 p {
   cursor: pointer;
+}
+
+.content {
+  padding: 2%;
 }
 
 button {

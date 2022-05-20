@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <button @click="getpost">Commenter</button>
+  <div class="content">
+    <button class="clickbtn" @click="getpost">Commenter</button>
     <div class="all" v-for="element in posts" :key="element.id">
       <div class="topComment">
         <div class="Profil">
@@ -151,20 +151,33 @@ export default {
   border: 3px solid white;
   box-shadow: 2px 4px 3px grey;
 }
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
+.comment {
+  padding-left: 5%;
+}
+
+.clickbtn {
+  width: 10%;
+}
 /*  TOP  */
 .topComment {
   display: flex;
   justify-content: space-between;
 }
 .imageprofil {
-  margin-top: 6%;
-  padding-right: 8%;
-  height: 8vh;
-  width: 8vh;
+  width: 40px;
+  height: 40px;
 }
 .Profil {
   display: flex;
+  width: 20%;
+  align-items: center;
+  gap: 10px;
 }
 
 .firstname {
@@ -173,6 +186,9 @@ export default {
 
 .date {
   color: #e0e0e0;
+  font-size: 0.8em;
+  position: relative;
+  top: -12px;
 }
 
 .dot {

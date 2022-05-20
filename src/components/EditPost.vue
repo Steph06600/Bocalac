@@ -1,7 +1,5 @@
 <template>
   <div>
-    <Login />
-    <Register />
     <div class="editPost">
       <input v-model="post" type="text" placeholder="Ecrivez votre post" />
       <div class="buttons">
