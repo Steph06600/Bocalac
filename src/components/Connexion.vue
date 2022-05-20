@@ -186,8 +186,14 @@ export default {
       prenomInscription: "",
       createMdp: "",
       confirmMdp: "",
+      // récupération des données
+      firstnameGet: "",
+      lastnameGet: "",
+      emailGet: "",
     };
   },
+
+  // props
 
   // inscription
   methods: {
@@ -269,8 +275,11 @@ export default {
 
       const data = await response.json();
 
-      console.log(response);
-      console.log(data);
+      this.firstnameGet = data.firstname;
+      this.lastnameGet = data.lastname;
+      this.emailGet = data.email;
+
+      // console.log(this.firstnameGet + this.lastnameGet + this.emailGet);
     },
   },
 
