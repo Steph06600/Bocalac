@@ -196,10 +196,10 @@ export default {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          mail: this.mail,
-          nomInscription: this.nomInscription,
-          prenomInscription: this.prenomInscription,
-          createMdp: this.createMdp,
+          email: this.mail,
+          lastname: this.nomInscription,
+          firstname: this.prenomInscription,
+          password: this.createMdp,
         }),
       };
 
@@ -221,7 +221,7 @@ export default {
         },
         body: JSON.stringify({
           email: this.email,
-          mdp: this.mdp,
+          password: this.mdp,
         }),
       };
 
