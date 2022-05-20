@@ -41,7 +41,7 @@
           <p v-if="result === true" class="success">
             Connexion réussie
             <br />
-            Token: {{ token }}
+            <span v-show="false"> Token: {{ token }}</span>
           </p>
           <p v-else-if="result === false" class="error">Connexion échouée</p>
         </form>
@@ -158,6 +158,7 @@
                 verifyPassword
               "
               type="submit"
+              @click="show = !show"
             >
               Valider
             </button>
