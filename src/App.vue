@@ -1,11 +1,6 @@
 <template>
   <div class="body">
     <HeaderBar class="headerBar" />
-    <nav>
-      <router-link to="/">Home</router-link> <br />
-      <router-link to="/profile">profile</router-link> <br />
-      <router-link to="/actus">actu</router-link>
-    </nav>
     <AsideBar class="aside" />
     <router-view />
   </div>
