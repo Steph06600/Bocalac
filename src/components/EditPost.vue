@@ -16,7 +16,6 @@
           </label>
         </div>
         <button @click="publish">Publier</button>
-        <button @click="getpost">Publier 2</button>
       </div>
     </div>
   </div>
@@ -74,29 +73,10 @@ export default {
       );
 
       const data = await response.json();
+      this.post = "";
 
       console.log(response);
       console.log(data);
-    },
-
-    async getpost() {
-      const options = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-
-      const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/bocalac/posts",
-        options
-      );
-
-      const data = await response.json();
-      this.posts = data.posts;
-
-      console.log(this.posts);
-      console.log(this.posts[0].content);
     },
   },
 };
