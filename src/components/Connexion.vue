@@ -19,7 +19,8 @@
           </div>
 
           <label class="alignPseudo" for="pseudo">Email </label> <br />
-          <input type="email" id="pseudo" v-model="email" required /> <br />
+          <input type="email" id="pseudo" v-model="email" required />
+          <br />
 
           <div class="alignMdpForgetMdp">
             <label class="labelMdp" for="mdp">Mot de passe </label>
@@ -211,7 +212,14 @@ export default {
       const data = await response.json();
 
       console.log(data);
+
+      this.mail = "";
+      this.nomInscription = "";
+      this.prenomInscription = "";
+      this.createMdp = "";
+      this.confirmMdp = "";
     },
+
     // Connexion
     async login() {
       const options = {
@@ -238,7 +246,8 @@ export default {
         localStorage.setItem("token", this.token);
       }
 
-      // localStorage token
+      this.email = "";
+      this.mdp = "";
     },
   },
 
