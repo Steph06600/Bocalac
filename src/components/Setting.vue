@@ -161,6 +161,7 @@ table {
   color: white;
   border-radius: 10px;
   font-size: 0.9em;
+  position: relative;
 }
 figure {
   width: 100%;

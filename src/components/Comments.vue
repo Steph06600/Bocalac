@@ -24,12 +24,12 @@
 
       <div class="bottomComment">
         <div class="buttonlike">
-          <button class="likeAndDislike" @click="addLike">
+          <button class="likeAndDislike" @click="addLike(element._id)">
             <img src="../assets/img/like48.png" />
           </button>
-          <p>{{ like }}</p>
+          <p>{{ element.likes.length }}</p>
 
-          <button class="likeAndDislike" @click="addDislike">
+          <button class="likeAndDislike" @click="addDislike(element._id)">
             <img class="image180" src="../assets/img/like48.png" />
           </button>
           <p>{{ dislike }}</p>
@@ -96,13 +96,53 @@ export default {
   // },
 
   methods: {
-    addLike() {
-      this.like += 1;
+    async addLike(id) {
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "bearer " + localStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          postId: id,
+        }),
+      };
+
+      const response = await fetch(
+        "https://social-network-api.osc-fr1.scalingo.io/bocalac/post/like",
+        options
+      );
+
+      const result = await response.json();
+
+      if (result.success === true) {
+        this.getpost();
+      }
     },
 
-    addDislike() {
-      this.dislike += 1;
-    },
+    // async addDislike(id) {
+    //   const options = {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: "bearer " + localStorage.getItem("token"),
+    //     },
+    //     body: JSON.stringify({
+    //       postId: id,
+    //     }),
+    //   };
+
+    //   const response = await fetch(
+    //     "https://social-network-api.osc-fr1.scalingo.io/bocalac/post/like",
+    //     options
+    //   );
+
+    //   const result = await response.json();
+
+    //   if (result.success === true) {
+    //     this.getpost();
+    //   }
+    // },
 
     // openCommentPostId(e){
     //   this. = e.target.value;
@@ -124,6 +164,7 @@ export default {
       const data = await response.json();
       this.posts = data.posts;
 
+      console.log(data);
       console.log(this.posts);
     },
 
