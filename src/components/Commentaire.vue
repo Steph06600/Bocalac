@@ -13,11 +13,11 @@
       />
       <button @click="postComment">Publier</button>
     </div>
-    <div>
-      <p></p>
+    <div v-for="element in listCommentaires" :key="element._id">
+      <p>{{ element.comments.content }}</p>
     </div>
   </div>
-  <!-- v-for="element in listCommentaires" :key="element._id"
+  <!-- 
   element.comments.content -->
 </template>
 
