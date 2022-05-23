@@ -24,12 +24,12 @@
 
           <div class="alignMdpForgetMdp">
             <label class="labelMdp" for="mdp">Mot de passe </label>
-            <a href="">Mot de passe oublié? </a>
+            <a href="">mot de passe oublié? </a>
           </div>
           <input type="password" name="mdp" id="mdp" v-model="mdp" required />
           <br />
 
-          <button type="submit">Valider</button>
+          <button type="submit">VALIDER</button>
           <br />
 
           <div class="linkInscription">
@@ -136,7 +136,7 @@
               Veuillez entrer le même mot de passe.
             </p>
             <p class="textVerificationGreen" v-show="verifyPassword == true">
-              Mot de passe identique.
+              Mot de passe identique
             </p>
 
             <br />
@@ -152,7 +152,7 @@
               type="submit"
               @click="show = !show"
             >
-              Valider
+              VALIDER
             </button>
             <br />
           </form>
@@ -320,8 +320,8 @@ export default {
   border-radius: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  border: solid 3px;
-  outline: black;
+  border: 2px solid white;
+  outline: #5adfbc;
 }
 
 .alignPseudo {
@@ -335,8 +335,8 @@ export default {
   border-radius: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  border: solid 3px;
-  outline: black;
+  border: 2px solid white;
+  outline: #5adfbc;
 }
 
 .alignMdpForgetMdp {
@@ -344,14 +344,39 @@ export default {
 }
 
 .labelMdp {
-  padding-right: 72px;
+  padding-right: 80px;
   color: white;
+}
+.alignMdpForgetMdp a {
+  color: white;
+  font-size: 15px;
+  font-weight: 200;
+  text-decoration: none;
+  font-style: italic;
 }
 
 .logForm button {
-  padding: 5px 40px;
+  padding: 10px 25px;
   margin-bottom: 40px;
   background-color: white;
+  border-radius: 10px;
+  color: grey;
+  border: 2px solid #5adfbc;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 6px;
+}
+
+.logForm button:hover {
+  padding: 10px 25px;
+  margin-bottom: 40px;
+  background-color: #5adfbc;
+  border-radius: 10px;
+  color: white;
+  border: 2px solid #5adfbc;
+  outline: none;
+  cursor: pointer;
 }
 
 /* Hover sur  "inscris toi" paragraphe */
@@ -465,50 +490,50 @@ export default {
   width: 300px;
   margin-bottom: 20px;
   border-radius: 10px;
-  border: solid 3px black;
+  border: 2px solid white;
   padding-bottom: 5px;
   padding-top: 5px;
-  outline: black;
+  outline: none;
 }
 
 #nomInscription {
   width: 300px;
   margin-bottom: 20px;
   border-radius: 10px;
-  border: solid 3px black;
+  border: 2px solid white;
   padding-bottom: 5px;
   padding-top: 5px;
-  outline: black;
+  outline: none;
 }
 
 #prenomInscription {
   width: 300px;
   margin-bottom: 20px;
   border-radius: 10px;
-  border: solid 3px black;
+  border: 2px solid white;
   padding-bottom: 5px;
   padding-top: 5px;
-  outline: black;
+  outline: none;
 }
 
 #createMdp {
   width: 300px;
   margin-bottom: 20px;
   border-radius: 10px;
-  border: solid 3px black;
+  border: 2px solid white;
   padding-bottom: 5px;
   padding-top: 5px;
-  outline: black;
+  outline: none;
 }
 
 #confirmMdp {
   width: 300px;
   margin-bottom: 20px;
   border-radius: 10px;
-  border: solid 3px black;
+  border: 2px solid white;
   padding-bottom: 5px;
   padding-top: 5px;
-  outline: black;
+  outline: none;
 }
 
 .confirmMdpStyle {

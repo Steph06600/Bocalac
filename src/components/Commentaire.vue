@@ -5,7 +5,7 @@
       type="text"
       placeholder="Ecrivez votre commentaire"
     />
-    <button @click="publish">Publier</button>
+    <button @click="publish" class="button">Publier</button>
   </div>
 </template>
 
@@ -13,4 +13,8 @@
 export default {};
 </script>
 
-<style scoped></style>
+<style scoped>
+button {
+  cursor: pointer;
+}
+</style>
