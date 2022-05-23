@@ -25,7 +25,6 @@
 export default {
   data() {
     return {
-      id: "",
       postCommentaire: "",
       token: localStorage.getItem("token"),
       listCommentaires: [],
@@ -82,9 +81,7 @@ export default {
 
       const data = await response.json();
       this.listCommentaires = data.posts;
-      console.log(data.posts._id);
 
-      this.id = data.posts._id;
       console.log(this.listCommentaires);
     },
   },
