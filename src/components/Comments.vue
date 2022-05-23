@@ -87,15 +87,9 @@ export default {
     };
   },
 
-  props: {
-    post: String,
-    // posts: String,
-    id: String,
-    successCallback: Function,
-    firstname: String,
-    lastname: String,
-    content: String,
-  },
+  // props: {
+  //   post: String,
+  // },
 
   methods: {
     async addLike(id) {
@@ -293,5 +287,14 @@ button {
   color: #e0e0e0;
   background-color: #474e58;
   cursor: pointer;
+}
+
+.button {
+  padding: 0 2%;
+  background: white;
+  border: 2px solid #5adfbc;
+  border-radius: 10px;
+  color: #474e58;
+  padding: 1% 3%;
 }
 </style>

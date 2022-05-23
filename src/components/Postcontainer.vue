@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <EditPost class="editpost" />
+    <EditPost />
     <Comments class="comments" />
   </div>
 </template>
@@ -19,11 +19,6 @@ export default {
 </script>
 
 <style scoped>
-.editpost,
-.comments {
-  width: 100%;
-}
-
 .content {
   padding: 4% 0;
   display: flex;

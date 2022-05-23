@@ -1,32 +1,33 @@
 <template>
-  <section id="modificationContainer">
-    <div id="titleModif">
-      <h1 id="title">MODIFICATION DU PROFIL</h1>
-    </div>
-    <div id="blocEditPhotoNom">
-      <div id="photoContainer">
-        <p id="photoProfil"></p>
-        <p>Photo de profil</p>
-      </div>
-      <div id="editNomContainer">
-        <div id="blocNom">
-          <div id="lastname">
+  <section id="container">
+    <h2 id="title">MODIFICATION DU PROFIL</h2>
+    <div id="bloc">
+      <div id="photoProfil"></div>
+
+      <div id="blockInput">
+        <div id="blockPseudo">
+          <div id="blocNom">
             <label for="">Nom</label>
             <input type="text" v-model="lastname" :placeholder="lastname" />
           </div>
+
           <div id="blocPrenom">
             <label for="">Prénom</label>
             <input type="text" v-model="firstname" :placeholder="firstname" />
           </div>
         </div>
+
         <div id="blocDescription">
           <label for="">Description</label>
           <input type="textarea" v-model="description" />
         </div>
       </div>
     </div>
-    <button id="buttonSave" @click="saveNewDatas">ENREGISTRER</button>
-    <p>Vous avez enregistré</p>
+
+    <div class="button">
+      <button id="buttonSave">ENREGISTRER</button>
+      <p>Vous avez enregistré</p>
+    </div>
   </section>
 </template>
 
@@ -82,105 +83,199 @@ export default {
 </script>
 
 <style scoped>
-#modificationContainer {
-  position: relative;
-  flex-direction: column;
-  background-color: #474e58;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx FIN RESET xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx FIN RESET xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+#container {
+  width: 80%;
+  background: #474e58;
+  border-radius: 10px;
+  padding: 3%;
+  margin: 10% auto;
   color: white;
-  width: 50%;
+  border: 3px solid white;
+  box-shadow: 3px 6px 6px grey;
+}
+
+h2 {
   text-align: center;
-  margin: auto;
-  border-radius: 7px;
-  font-family: sans-serif;
-  font-weight: 500;
-  height: 400px;
-}
-/* BLOC TITRE */
-
-#titleModif h1 {
-  font-weight: normal;
-  font-size: 20px;
-  padding: 4vh;
 }
 
-#titleModif button {
-  top: 8px;
-  right: 8px;
-  position: absolute;
-  border-radius: 20px;
-  border: none;
-  height: 30px;
-  width: 30px;
-  font-size: 15px;
-  color: grey;
-  background-color: white;
-}
-
-#photoContainer {
-  margin: 3vh 20px;
-  padding: 0 20px;
-  width: 40%;
-}
-
-#blocEditPhotoNom {
-  display: flex;
-}
-
-#lastname {
-  display: flex;
-  flex-direction: column;
-}
-
-#blocDescription {
-  display: flex;
-  margin: 3vh;
-  flex-direction: column;
-}
-
-#blocDescription input {
-  margin: 5px;
-  height: 60px;
-  border: none;
-  border-radius: 8px;
-}
-
-#edit {
-  display: flex;
-}
-#editNomContainer {
-  padding: 0 3vh;
-}
-
-#blocNom {
-  display: flex;
-  margin: 3vh;
-}
-
-#blocNom input {
-  margin: 5px;
-  border-radius: 8px;
-  border: none;
-  height: 20px;
-  margin-right: 5px;
-}
-
-/* PHOTO FLEX*/
 #photoProfil {
   background-color: white;
   border-radius: 50px;
   height: 100px;
   width: 100px;
-  margin: auto;
 }
 
-#buttonSave {
-  border: none;
-  color: #474e58;
-  border-radius: 8px;
-  background: white;
-  height: 20px;
-  font-weight: bold;
-  padding: 20px;
-  line-height: 0px;
+#bloc {
+  display: flex;
+  justify-content: space-around;
+  margin: 7% auto;
+  align-items: center;
+}
+
+#blockInput {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+#blockPseudo {
+  display: flex;
+  justify-content: space-between;
+}
+
+#blocNom,
+#blocPrenom,
+#blocDescription {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+}
+
+#blocNom,
+#blocPrenom {
+  width: 45%;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 </style>

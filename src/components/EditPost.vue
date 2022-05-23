@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <div class="editPost">
-      <input v-model="post" type="text" placeholder="Ecrivez votre post" />
-      <div class="buttons">
-        <p>{{ fileName }}</p>
-        <div v-if="fileUrl" class="previewFile">
-          <img :src="fileUrl" alt="" />
-        </div>
-        <div class="img">
-          <input @change="addFile" id="file" class="inputFile" type="file" />
-          <label for="file" class="trombone">
-            <img src="../assets/img/trombone48.png" alt="" />
-          </label>
-        </div>
-        <button @click="publish">Publier</button>
+  <div class="editPost">
+    <input v-model="post" type="text" placeholder="Ecrivez votre post" />
+    <div class="buttons">
+      <p>{{ fileName }}</p>
+      <div v-if="fileUrl" class="previewFile">
+        <img :src="fileUrl" alt="" />
       </div>
+      <div class="img">
+        <input @change="addFile" id="file" class="inputFile" type="file" />
+        <label for="file" class="trombone">
+          <img src="../assets/img/trombone48.png" alt="" />
+        </label>
+      </div>
+      <button @click="publish">Publier</button>
     </div>
   </div>
 </template>
@@ -87,7 +85,7 @@ export default {
 }
 
 input {
-  width: 100%;
+  width: 98%;
   padding: 1%;
   border: 2px solid black;
   border-radius: 5px;
@@ -99,6 +97,7 @@ input {
   display: flex;
   justify-content: flex-end;
   gap: 20px;
+  align-items: center;
 }
 
 .buttons p {
@@ -111,8 +110,8 @@ input {
 }
 
 .img {
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   background: white;
   border-radius: 50%;
   padding: 5px;
@@ -121,7 +120,7 @@ input {
 .trombone {
   position: relative;
   display: flex;
-  width: 38px;
+  width: 30px;
   background: white;
   border-radius: 50%;
   padding: 5px;
@@ -149,5 +148,6 @@ button {
   border: 2px solid #5adfbc;
   border-radius: 10px;
   color: #474e58;
+  padding: 1% 3%;
 }
 </style>

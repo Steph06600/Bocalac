@@ -8,8 +8,9 @@
     </figure>
     <nav>
       <router-link to="/profile">Voir profil</router-link>
+      <router-link to="/actus">Fil d'actualités</router-link>
+      <router-link to="/setting">Paramètres</router-link>
       <router-link to="/">Déconnexion</router-link>
-      <router-link to="/actus">Paramètres</router-link>
     </nav>
   </div>
 </template>
