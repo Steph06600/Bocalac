@@ -150,10 +150,7 @@
                 verifyPassword
               "
               type="submit"
-              @click="
-                show = !show;
-                window.location.reload();
-              "
+              @click="show = !show"
             >
               Valider
             </button>
