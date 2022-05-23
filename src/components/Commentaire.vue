@@ -6,20 +6,22 @@
 
     <div>
       <input
-        v-model="postCommentaire[index]"
+        v-model="postCommentaire"
         id=""
         type="text"
         placeholder="Ecrivez votre commentaire"
       />
-      <button @click="postComment(postCommentaire._id, index)">Publier</button>
+      <button @click="postComment()">Publier</button>
     </div>
-
-    <div v-for="element in listCommentaires" :key="element._id">
-      <p v-for="ele in element.comments" :key="ele._id">
-        <span>{{ ele.firstname }} : </span> {{ ele.content }}
-      </p>
+    <div class="scroll-div">
+      <div v-for="element in listCommentaires" :key="element._id">
+        <p v-for="ele in element.comments" :key="ele._id">
+          <span>{{ ele.firstname }} : </span> {{ ele.content }}
+        </p>
+      </div>
     </div>
   </div>
+
   <!-- 
   element.comments.content -->
 </template>
@@ -39,7 +41,7 @@ export default {
 
   methods: {
     // Créer un commentaire
-    async postComment(id, index) {
+    async postComment() {
       const options = {
         method: "POST",
         headers: {
@@ -47,8 +49,8 @@ export default {
           Authorization: "bearer " + localStorage.getItem("token"),
         },
         body: JSON.stringify({
-          postId: this.id[id],
-          content: this.postCommentaire[index],
+          postId: this.id,
+          content: this.postCommentaire,
         }),
       };
 
@@ -91,6 +93,11 @@ export default {
 </script>
 
 <style scoped>
+.scroll-div {
+  height: 220px;
+  overflow-y: scroll;
+}
+
 button {
   cursor: pointer;
 }

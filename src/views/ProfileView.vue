@@ -103,8 +103,8 @@ h1 {
   top: 8px;
 }
 .canard {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   position: relative;
 }
 </style>
