@@ -46,6 +46,10 @@
           >
             Commenter
           </button>
+<<<<<<< HEAD
+=======
+          <button @click="commentaire" class="buttonHover">Commenter</button>
+>>>>>>> a2240fe2670af5bd29c72df3a921a312f72a01e6
           <button class="buttonHover">Partager</button>
         </div>
       </div>
