@@ -1,6 +1,8 @@
 <template>
   <div class="content">
-    <button class="clickbtn" @click="getpost">Afficher les posts</button>
+    <button class="clickbtn buttonHover" @click="getpost">
+      Afficher les posts
+    </button>
     <div class="all" v-for="element in posts" :key="element._id">
       <div class="topComment">
         <div class="Profil">
@@ -44,8 +46,13 @@
           >
             voir les commentaires ({{ posts.length }})
           </button>
+<<<<<<< HEAD
+          <button @click="commentaire" class="buttonHover">Commenter</button>
+          <button class="buttonHover">Partager</button>
+=======
           <button>Commenter</button>
           <button>Partager</button>
+>>>>>>> 15d6864565a8b3f270663aa1873950e8e02e7619
         </div>
       </div>
       <Commentaire
@@ -196,7 +203,7 @@ export default {
 .all {
   background-color: #474e58;
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 0px 20px;
   border: 3px solid white;
   box-shadow: 2px 4px 3px grey;
@@ -213,6 +220,7 @@ export default {
 
 .clickbtn {
   width: 15%;
+  color: #474e58;
 }
 /*  TOP  */
 .topComment {
@@ -273,10 +281,11 @@ img {
   border: none;
   background: white;
   background-color: #474e58;
+  cursor: pointer;
 }
 
 button {
-  border-radius: 5px;
+  border-radius: 10px;
   border: 2px solid #5adfbc;
   background-color: white;
 }
@@ -285,6 +294,14 @@ button {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.buttonHover:hover {
+  border-radius: 10px;
+  border: 2px solid #5adfbc;
+  background-color: #5adfbc;
+  color: white;
+  cursor: pointer;
 }
 
 .commentaire {
