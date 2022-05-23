@@ -10,13 +10,19 @@
       <router-link to="/profile">Voir profil</router-link>
       <router-link to="/actus">Fil d'actualités</router-link>
       <router-link to="/setting">Paramètres</router-link>
-      <router-link to="/">Déconnexion</router-link>
+      <router-link @click="deconnexion" to="/">Déconnexion</router-link>
     </nav>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    deconnexion() {
+      localStorage.clear();
+    },
+  },
+};
 </script>
 
 <style scoped>
