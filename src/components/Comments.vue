@@ -87,15 +87,9 @@ export default {
     };
   },
 
-  props: {
-    post: String,
-    // posts: String,
-    id: String,
-    successCallback: Function,
-    firstname: String,
-    lastname: String,
-    content: String,
-  },
+  // props: {
+  //   post: String,
+  // },
 
   methods: {
     addLike() {
