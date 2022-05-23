@@ -27,8 +27,6 @@ export default {
       post: "",
       result: null,
       token: localStorage.getItem("token"),
-
-      // arrayPost: [],
     };
   },
   methods: {
@@ -38,11 +36,6 @@ export default {
       let nameFile = e.target.files[0].name;
       this.fileName = nameFile;
     },
-    // addPost() {
-    //   this.arrayPost.push(this.post);
-    //   console.log(this.arrayPost);
-    //   this.post = "";
-    // },
     async publish() {
       const options = {
         method: "POST",

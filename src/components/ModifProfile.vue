@@ -7,18 +7,18 @@
       <div id="blockInput">
         <div id="blockPseudo">
           <div id="blocNom">
-            <label for="">Nom</label>
+            <label for="">{{ nom }}</label>
             <input type="text" v-model="lastname" />
           </div>
 
           <div id="blocPrenom">
-            <label for="">Prénom</label>
+            <label for="">{{ prenom }}</label>
             <input type="text" v-model="firstname" />
           </div>
         </div>
 
         <div id="blocDescription">
-          <label for="">Description</label>
+          <label for="">{{ mail }}</label>
           <input type="textarea" v-model="description" />
         </div>
       </div>
@@ -34,14 +34,6 @@
 <script>
 export default {
   name: "ModifProfile",
-  // methods: {
-  //   changePageToModifProfile() {
-  //     this.page = "edit";
-  //   },
-  // changePageToProfile() {
-  //   this.page = "profile";
-  // },
-  /* SAUVEGARDE DES DONNEES */
 
   data() {
     return {
@@ -53,6 +45,12 @@ export default {
       description: "",
       saveData: [],
     };
+  },
+
+  props: {
+    nom: String,
+    prenom: String,
+    mail: String,
   },
 };
 </script>

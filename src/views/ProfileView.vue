@@ -1,14 +1,9 @@
 <template>
   <div class="contentProfilView">
-    <!-- <div>
-      <button v-show="page == 'edit'" @click="changePageToProfile">X</button>
-      <ModifProfile v-show="page == 'edit'"></ModifProfile>
-    </div> -->
-    <!-- <div v-show="page == 'profile'"> -->
     <div class="infosProfil">
-      <div class="pdp" @click="changePageToEdit"></div>
+      <div class="pdp"></div>
       <div class="textInfosProfil">
-        <p>{{ nom }} Nom Prénom {{ prenom }}</p>
+        <p>{{ nom }} {{ prenom }}</p>
         <div class="statut">
           <p>Statut</p>
           <div class="pastilleStatut">vert</div>
@@ -17,20 +12,17 @@
       </div>
     </div>
     <Postcontainer />
-    <!-- </div> -->
   </div>
 </template>
 
 <script>
 import HeaderBar from "@/components/HeaderBar.vue";
-// import ModifProfile from "@/components/ModifProfile.vue";
 import Postcontainer from "@/components/Postcontainer.vue";
 import AsideBar from "@/components/AsideBar.vue";
 
 export default {
   components: {
     HeaderBar,
-    // ModifProfile,
     Postcontainer,
     AsideBar,
   },
@@ -40,24 +32,13 @@ export default {
     prenom: String,
   },
 
-  // data() {
-  //   return {
-  //     // closeEditProfile: true,
-  //     page: "profile",
-  //   };
-  // },
-
-  // methods: {
-  //   changePageToEdit() {
-  //     this.page = "edit";
-  //     console.log(this.page);
-  //   },
-
-  //   changePageToProfile() {
-  //     this.page = "profile";
-  //     console.log(this.page);
-  //   },
-  // },
+  data() {
+    return {
+      lastname: this.nom,
+      firstname: this.prenom,
+      email: this.mail,
+    };
+  },
 };
 </script>
 
