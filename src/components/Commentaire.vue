@@ -13,8 +13,9 @@
       />
       <button @click="postComment">Publier</button>
     </div>
+
     <div v-for="element in listCommentaires" :key="element._id">
-      <p>{{ element.comments.content }}</p>
+      <p v-for="ele in element.comments" :key="ele._id">{{ ele.content }}</p>
     </div>
   </div>
   <!-- 
