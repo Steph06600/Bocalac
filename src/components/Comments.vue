@@ -35,11 +35,28 @@
           <p>{{ dislike }}</p>
         </div>
         <div class="buttonBottomRight">
-          <button class="button" @click="getpost">Commenter</button>
-          <button class="button" @click="commentaire">Partager</button>
+          <button
+            @click="
+              openCommentPostId =
+                openCommentPostId === element._id ? null : element._id
+            "
+            class="commentaire"
+          >
+            voir les commentaires ({{ posts.length }})
+          </button>
+          <button @click="commentaire">Commenter</button>
+          <button>Partager</button>
         </div>
       </div>
+      <Commentaire v-if="openCommentPostId === element._id" class="" />
     </div>
+
+    <!-- <div v-for="element in posts" :key="element.id">
+      <p class="" @click="EditPost">
+        {{ element.firstname }} {{ element.lastname }}
+      </p>
+      {{ element.content }}
+    </div> -->
   </div>
   <!-- li v-for="element in posts" :key="element" element.posts[0].content -->
   <!-- v-for="(element, index) in posts" :key="index" -->
@@ -48,12 +65,14 @@
 
 <script>
 import EditPost from "@/components/EditPost.vue";
+import Commentaire from "@/components/Commentaire.vue";
 export default {
   components: {
     EditPost,
+    Commentaire,
   },
 
-  name: "commentaire",
+  name: "comments",
 
   data() {
     return {
@@ -64,6 +83,7 @@ export default {
       posts: [],
       page: 1,
       totalPages: 1,
+      openCommentPostId: false,
     };
   },
 
@@ -86,6 +106,10 @@ export default {
       this.dislike += 1;
     },
 
+    // openCommentPostId(e){
+    //   this. = e.target.value;
+    // }
+
     async getpost() {
       const options = {
         method: "GET",
@@ -103,13 +127,6 @@ export default {
       this.posts = data.posts;
 
       console.log(this.posts);
-      // console.log(data.posts[0]);
-
-      // if (response.status === 200) {
-      //   this.userProfile.firstname = posts.firstname;
-      //   this.userProfile.lastname = posts.lastname;
-      //   this.emailProfile.currentEmail = posts.email;
-      // }
     },
 
     async commentaire() {
@@ -130,12 +147,6 @@ export default {
       );
       const data = await response.json();
       console.log(data);
-
-      // if (response.status === 200) {
-      //   this.successCallback();
-      //   this.content = "";
-      //   this.textOk = false;
-      // }
     },
   },
 };
@@ -234,7 +245,14 @@ button {
 .buttonBottomRight {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
+}
+
+.commentaire {
+  border: none;
+  color: #e0e0e0;
+  background-color: #474e58;
+  cursor: pointer;
 }
 
 .button {
