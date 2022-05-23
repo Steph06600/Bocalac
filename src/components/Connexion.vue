@@ -150,10 +150,7 @@
                 verifyPassword
               "
               type="submit"
-              @click="
-                show = !show;
-                window.location.reload();
-              "
+              @click="show = !show"
             >
               Valider
             </button>
@@ -240,11 +237,10 @@ export default {
       if (data.success === true) {
         this.token = data.token;
         localStorage.setItem("token", this.token);
-
-        // Navigation vers une autres page avec router.push
-        this.$router.push("/actus");
       }
 
+      // Navigation vers une autres page avec router.push
+      this.$router.push("/actus");
       this.email = "";
       this.mdp = "";
     },
