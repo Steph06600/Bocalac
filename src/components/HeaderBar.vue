@@ -5,11 +5,11 @@
         <img src="../assets/img/canardBocalacContours.png" alt="" />
         <input type="text" placeholder="Rechercher" />
       </div>
-      <div id="picture" @click="settingStatut1 = !settingStatut1">
+      <div id="picture" @click="settingStatut = !settingStatut">
         <p>Photo</p>
       </div>
     </nav>
-    <Setting v-if="settingStatut1" class="setting"></Setting>
+    <Setting v-if="settingStatut" class="setting"></Setting>
   </header>
 </template>
 <script>
@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-      settingStatut1: false,
+      settingStatut: false,
     };
   },
   methods: {},

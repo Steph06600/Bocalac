@@ -2,7 +2,12 @@
   <div class="body">
     <HeaderBar class="headerBar" />
     <AsideBar class="aside" />
-    <router-view :nom="lastname" :prenom="firstname" :mail="email" />
+    <router-view
+      :nom="lastname"
+      :prenom="firstname"
+      :mail="email"
+      :methodGetUser="getUser"
+    />
   </div>
 </template>
 
@@ -49,6 +54,8 @@ const App = {
       this.lastname = data.lastname;
       this.email = data.email;
 
+      console.log(response);
+      console.log(data);
       console.log(this.firstname + this.lastname + this.email);
     },
   },
