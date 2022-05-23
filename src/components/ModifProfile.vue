@@ -277,6 +277,12 @@ h2 {
   gap: 40px;
 }
 
+input {
+  border-radius: 10px;
+  outline: none;
+  border: 2px solid white;
+}
+
 #blockPseudo {
   display: flex;
   justify-content: space-between;
@@ -301,5 +307,21 @@ h2 {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  border-radius: 10px;
+}
+
+#buttonSave {
+  border-radius: 10px;
+  background: white;
+  border: 2px solid #5adfbc;
+  color: #474e58;
+  cursor: pointer;
+  padding: 5px;
+}
+
+#buttonSave:hover {
+  border: 2px solid #5adfbc;
+  background: #5adfbc;
+  color: white;
 }
 </style>
