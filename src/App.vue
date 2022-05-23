@@ -1,8 +1,9 @@
 <template>
-  <div class="body">
+  <div class="body" @recupInfosUser="recupInfosUser">
     <HeaderBar class="headerBar" />
     <AsideBar class="aside" />
-    <router-view />
+    <!-- <p>{{ nom }} {{ prenom }} {{ mail }}</p> -->
+    <router-view :nom="lastnameGet" :prenom="firstnameGet" :mail="emailGet" />
   </div>
 </template>
 
@@ -14,6 +15,65 @@ const App = {
   components: {
     HeaderBar,
     AsideBar,
+  },
+
+  // data() {
+  //   return {
+  //     nom: "",
+  //     prenom: "",
+  //     mail: "",
+  //   };
+  // },
+
+  // methods: {
+  //   recupInfosUser(getUserNom, getUserPrenom, getUserMail) {
+  //     this.nom = getUserNom;
+  //     this.prenom = getUserPrenom;
+  //     this.mail = getUserMail;
+  //     console.log("cc");
+  //   },
+  // },
+  data() {
+    return {
+      // récupération des données
+      firstnameGet: "",
+      lastnameGet: "",
+      emailGet: "",
+    };
+  },
+
+  methods: {
+    async getUser() {
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "bearer " + localStorage.getItem("token"),
+        },
+      };
+
+      const response = await fetch(
+        "https://social-network-api.osc-fr1.scalingo.io/bocalac/user",
+        options
+      );
+
+      const data = await response.json();
+
+      this.firstnameGet = data.firstname;
+      this.lastnameGet = data.lastname;
+      this.emailGet = data.email;
+
+      console.log("cc");
+
+      // this.$emit(
+      //   "recupInfosUser",
+      //   this.lastnameGet,
+      //   this.firstnameGet,
+      //   this.emailGet
+      // );
+
+      // console.log(this.firstnameGet + this.lastnameGet + this.emailGet);
+    },
   },
 };
 export default App;

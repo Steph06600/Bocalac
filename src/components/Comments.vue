@@ -248,4 +248,13 @@ button {
   background-color: #474e58;
   cursor: pointer;
 }
+
+.button {
+  padding: 0 2%;
+  background: white;
+  border: 2px solid #5adfbc;
+  border-radius: 10px;
+  color: #474e58;
+  padding: 1% 3%;
+}
 </style>
