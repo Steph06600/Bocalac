@@ -2,7 +2,7 @@
   <!-- v-for="element in listCommentaires" :key="element._id" -->
 
   <div>
-    <button @click="getcommentaire">afficher les com's</button>
+    <!-- <button @click="getcommentaire()">afficher les com's</button> -->
 
     <div>
       <input
@@ -37,6 +37,10 @@ export default {
   },
   props: {
     id: String,
+  },
+
+  mounted() {
+    this.getcommentaire();
   },
 
   methods: {

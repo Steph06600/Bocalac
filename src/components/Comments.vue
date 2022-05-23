@@ -13,7 +13,17 @@
           </div>
         </div>
         <div>
-          <button class="dot">● ● ●</button>
+          <button
+            class="dot"
+            @click="openSuppr = openSuppr === element._id ? null : element._id"
+          >
+            ● ● ●
+          </button>
+          <div>
+            <button v-if="openSuppr === element._id" :id="element._id" class="">
+              Suppr
+            </button>
+          </div>
         </div>
       </div>
 
@@ -34,9 +44,6 @@
           <p>{{ dislike }}</p>
         </div>
         <div class="buttonBottomRight">
-          <button @click="getcommentaire" class="commentaire">
-            voir les commentaires ({{ posts.length }})
-          </button>
           <button
             @click="
               openCommentPostId =
@@ -89,6 +96,7 @@ export default {
       page: 1,
       totalPages: 1,
       openCommentPostId: null,
+      openSuppr: null,
     };
   },
 
@@ -294,13 +302,6 @@ button {
   border: 2px solid #5adfbc;
   background-color: #5adfbc;
   color: white;
-  cursor: pointer;
-}
-
-.commentaire {
-  border: none;
-  color: #e0e0e0;
-  background-color: #474e58;
   cursor: pointer;
 }
 
