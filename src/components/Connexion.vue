@@ -63,14 +63,7 @@
             </div>
 
             <label class="mailStyle" for="mail">Mail </label> <br />
-            <input
-              type="email"
-              name="mail"
-              id="mail"
-              :class="isEmailValid ? 'valid' : 'error'"
-              v-model="mail"
-              required
-            />
+            <input type="email" name="mail" id="mail" v-model="mail" required />
 
             <p
               class="textVerification"
@@ -113,7 +106,6 @@
               type="password"
               name="createMdp"
               id="createMdp"
-              :class="isPasswordValid ? 'valid' : 'error'"
               v-model="createMdp"
               required
             />
@@ -245,6 +237,9 @@ export default {
       if (data.success === true) {
         this.token = data.token;
         localStorage.setItem("token", this.token);
+
+        // Navigation vers une autres page avec router.push
+        this.$router.push("/actus");
       }
 
       this.email = "";
@@ -315,6 +310,8 @@ export default {
   width: 420px;
   border-radius: 10px;
   background-color: #474e58;
+  border: 2px solid white;
+  box-shadow: 3px 6px 6px grey;
 }
 
 #pseudo {
@@ -324,6 +321,7 @@ export default {
   padding-top: 5px;
   padding-bottom: 5px;
   border: solid 3px;
+  outline: black;
 }
 
 .alignPseudo {
@@ -338,6 +336,7 @@ export default {
   padding-top: 5px;
   padding-bottom: 5px;
   border: solid 3px;
+  outline: black;
 }
 
 .alignMdpForgetMdp {
@@ -364,6 +363,7 @@ export default {
   margin: 0 -0.25rem;
   transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   border-radius: 10px;
+  cursor: pointer;
 }
 .animationHover:hover {
   color: #474e58;
@@ -382,6 +382,16 @@ export default {
   margin-right: 72px;
 }
 
+.error {
+  color: red;
+  font-size: 20px;
+}
+
+.success {
+  color: #5adfbc;
+  font-size: 20px;
+}
+
 /* style formulaired d'inscription */
 
 .formInscription {
@@ -391,6 +401,8 @@ export default {
   height: 670px;
   border-radius: 10px;
   background-color: #474e58;
+  border: 2px solid white;
+  box-shadow: 3px 6px 6px grey;
 }
 
 .linkInscription {
@@ -409,6 +421,7 @@ export default {
   padding: 0 0.25rem;
   margin: 0 -0.25rem;
   transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 90px;
 }
 .backToConnexion:hover {
   color: #474e58;
@@ -429,6 +442,7 @@ export default {
 }
 .backToConnexion p {
   margin-top: 0px;
+  cursor: pointer;
 }
 
 /* fin animation */
@@ -454,6 +468,7 @@ export default {
   border: solid 3px black;
   padding-bottom: 5px;
   padding-top: 5px;
+  outline: black;
 }
 
 #nomInscription {
@@ -463,6 +478,7 @@ export default {
   border: solid 3px black;
   padding-bottom: 5px;
   padding-top: 5px;
+  outline: black;
 }
 
 #prenomInscription {
@@ -472,6 +488,7 @@ export default {
   border: solid 3px black;
   padding-bottom: 5px;
   padding-top: 5px;
+  outline: black;
 }
 
 #createMdp {
@@ -481,6 +498,7 @@ export default {
   border: solid 3px black;
   padding-bottom: 5px;
   padding-top: 5px;
+  outline: black;
 }
 
 #confirmMdp {
@@ -490,6 +508,7 @@ export default {
   border: solid 3px black;
   padding-bottom: 5px;
   padding-top: 5px;
+  outline: black;
 }
 
 .confirmMdpStyle {

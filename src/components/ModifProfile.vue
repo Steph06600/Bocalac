@@ -37,12 +37,12 @@ export default {
 
   data() {
     return {
-      // closeEditProfile: true,
       page: "profile",
       profilePicture: "",
       lastname: "",
       firstname: "",
       description: "",
+      token: localStorage.getItem("token"),
       saveData: [],
     };
   },
