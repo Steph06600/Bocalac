@@ -2,30 +2,23 @@
   <!-- v-for="element in listCommentaires" :key="element._id" -->
 
   <div>
-<<<<<<< HEAD
-    <input
-      v-model="postCommentaire"
-      type="text"
-      placeholder="Ecrivez votre commentaire"
-    />
-    <button @click="publish" class="button">Publier</button>
-=======
-    <button @click="getcommentaire">afficher</button>
+    <button @click="getcommentaire">afficher les com's</button>
 
     <div>
       <input
-        v-model="postCommentaire"
+        v-model="postCommentaire[index]"
         id=""
         type="text"
         placeholder="Ecrivez votre commentaire"
       />
-      <button @click="postComment">Publier</button>
+      <button @click="postComment(postCommentaire._id, index)">Publier</button>
     </div>
 
     <div v-for="element in listCommentaires" :key="element._id">
-      <p v-for="ele in element.comments" :key="ele._id">{{ ele.content }}</p>
+      <p v-for="ele in element.comments" :key="ele._id">
+        <span>{{ ele.firstname }} : </span> {{ ele.content }}
+      </p>
     </div>
->>>>>>> 15d6864565a8b3f270663aa1873950e8e02e7619
   </div>
   <!-- 
   element.comments.content -->
@@ -46,7 +39,7 @@ export default {
 
   methods: {
     // Créer un commentaire
-    async postComment() {
+    async postComment(id, index) {
       const options = {
         method: "POST",
         headers: {
@@ -54,8 +47,8 @@ export default {
           Authorization: "bearer " + localStorage.getItem("token"),
         },
         body: JSON.stringify({
-          postId: this.id,
-          content: this.postCommentaire,
+          postId: this.id[id],
+          content: this.postCommentaire[index],
         }),
       };
 
@@ -99,6 +92,35 @@ export default {
 
 <style scoped>
 button {
+  cursor: pointer;
+}
+input {
+  border-radius: 5px;
+}
+
+p {
+  border: 2.5px solid #5adfbc;
+  border-radius: 7px;
+  width: fit-content;
+  padding: 0.5% 1%;
+  background-color: white;
+  color: #474e58;
+}
+span {
+  font-weight: bold;
+}
+
+button {
+  border-radius: 10px;
+  border: 2px solid #5adfbc;
+  background-color: white;
+}
+
+button:hover {
+  border-radius: 10px;
+  border: 2px solid #5adfbc;
+  background-color: #5adfbc;
+  color: white;
   cursor: pointer;
 }
 </style>

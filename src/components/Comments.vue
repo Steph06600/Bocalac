@@ -1,8 +1,5 @@
 <template>
   <div class="content">
-    <button class="clickbtn buttonHover" @click="getpost">
-      Afficher les posts
-    </button>
     <div class="all" v-for="element in posts" :key="element._id">
       <div class="topComment">
         <div class="Profil">
@@ -37,22 +34,19 @@
           <p>{{ dislike }}</p>
         </div>
         <div class="buttonBottomRight">
+          <button @click="getcommentaire" class="commentaire">
+            voir les commentaires ({{ posts.length }})
+          </button>
           <button
             @click="
               openCommentPostId =
                 openCommentPostId === element._id ? null : element._id
             "
-            class="commentaire"
+            class="buttonHover"
           >
-            voir les commentaires ({{ posts.length }})
+            Commenter
           </button>
-<<<<<<< HEAD
-          <button @click="commentaire" class="buttonHover">Commenter</button>
           <button class="buttonHover">Partager</button>
-=======
-          <button>Commenter</button>
-          <button>Partager</button>
->>>>>>> 15d6864565a8b3f270663aa1873950e8e02e7619
         </div>
       </div>
       <Commentaire
@@ -101,6 +95,9 @@ export default {
   // props: {
   //   post: String,
   // },
+  mounted() {
+    this.getpost();
+  },
 
   methods: {
     async addLike(id) {
@@ -218,10 +215,6 @@ export default {
   padding-left: 5%;
 }
 
-.clickbtn {
-  width: 15%;
-  color: #474e58;
-}
 /*  TOP  */
 .topComment {
   display: flex;

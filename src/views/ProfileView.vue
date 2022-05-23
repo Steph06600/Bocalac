@@ -1,7 +1,9 @@
 <template>
   <div class="contentProfilView">
     <div class="infosProfil">
-      <div class="pdp"></div>
+      <div class="pdp">
+        <img class="canard" src="../assets/img/CanardBocalac.png" />
+      </div>
       <div class="textInfosProfil">
         <p>{{ nom }} {{ prenom }}</p>
         <div class="statut">
@@ -63,6 +65,9 @@ export default {
   border-radius: 50%;
   background-color: bisque;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .statut {
@@ -96,5 +101,10 @@ h1 {
   display: flex;
   position: relative;
   top: 8px;
+}
+.canard {
+  width: 90px;
+  height: 90px;
+  position: relative;
 }
 </style>
