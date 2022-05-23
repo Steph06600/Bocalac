@@ -1,58 +1,63 @@
 <template>
-  <div class="content">
-    <div>
+  <div class="contentProfilView">
+    <!-- <div>
       <button v-show="page == 'edit'" @click="changePageToProfile">X</button>
       <ModifProfile v-show="page == 'edit'"></ModifProfile>
-    </div>
-    <div v-show="page == 'profile'">
-      <div class="infosProfil">
-        <div class="pdp" @click="changePageToEdit"></div>
-        <div class="textInfosProfil">
-          <p>Nom Prénom</p>
-          <div class="statut">
-            <p>Statut</p>
-            <div class="pastilleStatut">vert</div>
-          </div>
-          <p>Ceci est une petite description / biographie</p>
+    </div> -->
+    <!-- <div v-show="page == 'profile'"> -->
+    <div class="infosProfil">
+      <div class="pdp" @click="changePageToEdit"></div>
+      <div class="textInfosProfil">
+        <p>{{ nom }} Nom Prénom {{ prenom }}</p>
+        <div class="statut">
+          <p>Statut</p>
+          <div class="pastilleStatut">vert</div>
         </div>
+        <p>Ceci est une petite description / biographie</p>
       </div>
-      <Postcontainer />
     </div>
+    <Postcontainer />
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
 import HeaderBar from "@/components/HeaderBar.vue";
-import ModifProfile from "@/components/ModifProfile.vue";
+// import ModifProfile from "@/components/ModifProfile.vue";
 import Postcontainer from "@/components/Postcontainer.vue";
 import AsideBar from "@/components/AsideBar.vue";
 
 export default {
   components: {
     HeaderBar,
-    ModifProfile,
+    // ModifProfile,
     Postcontainer,
     AsideBar,
   },
 
-  data() {
-    return {
-      // closeEditProfile: true,
-      page: "profile",
-    };
+  props: {
+    nom: String,
+    prenom: String,
   },
 
-  methods: {
-    changePageToEdit() {
-      this.page = "edit";
-      console.log(this.page);
-    },
+  // data() {
+  //   return {
+  //     // closeEditProfile: true,
+  //     page: "profile",
+  //   };
+  // },
 
-    changePageToProfile() {
-      this.page = "profile";
-      console.log(this.page);
-    },
-  },
+  // methods: {
+  //   changePageToEdit() {
+  //     this.page = "edit";
+  //     console.log(this.page);
+  //   },
+
+  //   changePageToProfile() {
+  //     this.page = "profile";
+  //     console.log(this.page);
+  //   },
+  // },
 };
 </script>
 
@@ -90,7 +95,7 @@ p {
   margin: 0;
 }
 
-.content {
+.contentProfilView {
   padding: 2%;
 }
 

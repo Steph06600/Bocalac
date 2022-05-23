@@ -35,8 +35,8 @@
           <p>{{ dislike }}</p>
         </div>
         <div class="buttonBottomRight">
-          <button @click="getpost">Commenter</button>
-          <button @click="commentaire">Partager</button>
+          <button class="button" @click="getpost">Commenter</button>
+          <button class="button" @click="commentaire">Partager</button>
         </div>
       </div>
     </div>
@@ -235,5 +235,14 @@ button {
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+.button {
+  padding: 0 2%;
+  background: white;
+  border: 2px solid #5adfbc;
+  border-radius: 10px;
+  color: #474e58;
+  padding: 1% 3%;
 }
 </style>

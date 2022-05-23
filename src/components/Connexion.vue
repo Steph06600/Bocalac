@@ -259,28 +259,35 @@ export default {
       this.getUser();
     },
 
-    async getUser() {
-      const options = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "bearer " + localStorage.getItem("token"),
-        },
-      };
+    // async getUser() {
+    //   const options = {
+    //     method: "GET",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: "bearer " + localStorage.getItem("token"),
+    //     },
+    //   };
 
-      const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/bocalac/user",
-        options
-      );
+    //   const response = await fetch(
+    //     "https://social-network-api.osc-fr1.scalingo.io/bocalac/user",
+    //     options
+    //   );
 
-      const data = await response.json();
+    //   const data = await response.json();
 
-      this.firstnameGet = data.firstname;
-      this.lastnameGet = data.lastname;
-      this.emailGet = data.email;
+    //   this.firstnameGet = data.firstname;
+    //   this.lastnameGet = data.lastname;
+    //   this.emailGet = data.email;
 
-      // console.log(this.firstnameGet + this.lastnameGet + this.emailGet);
-    },
+    //   // this.$emit(
+    //   //   "recupInfosUser",
+    //   //   this.lastnameGet,
+    //   //   this.firstnameGet,
+    //   //   this.emailGet
+    //   // );
+
+    //   // console.log(this.firstnameGet + this.lastnameGet + this.emailGet);
+    // },
   },
 
   computed: {
