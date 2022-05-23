@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <button class="clickbtn" @click="getpost">Afficher les posts</button>
-    <div class="all" v-for="element in posts" :key="element.id">
+    <div class="all" v-for="element in posts" :key="element._id">
       <div class="topComment">
         <div class="Profil">
           <img
@@ -44,11 +44,15 @@
           >
             voir les commentaires ({{ posts.length }})
           </button>
-          <button @click="commentaire">Commenter</button>
+          <!-- <button @click="commentaire">Commenter</button> -->
           <button>Partager</button>
         </div>
       </div>
-      <Commentaire v-if="openCommentPostId === element._id" class="" />
+      <Commentaire
+        v-if="openCommentPostId === element._id"
+        :id="element._id"
+        class=""
+      />
     </div>
 
     <!-- <div v-for="element in posts" :key="element.id">
@@ -83,7 +87,7 @@ export default {
       posts: [],
       page: 1,
       totalPages: 1,
-      openCommentPostId: false,
+      openCommentPostId: null,
     };
   },
 
@@ -123,25 +127,25 @@ export default {
       console.log(this.posts);
     },
 
-    async commentaire() {
-      const options = {
-        method: "POST",
-        body: JSON.stringify({
-          postId: this.id,
-          content: this.content,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
+    // async commentaire() {
+    //   const options = {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       postId: this.id,
+    //       content: this.content,
+    //     }),
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   };
 
-      const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/bocalac/post/comment",
-        options
-      );
-      const data = await response.json();
-      console.log(data);
-    },
+    //   const response = await fetch(
+    //     "https://social-network-api.osc-fr1.scalingo.io/bocalac/post/comment",
+    //     options
+    //   );
+    //   const data = await response.json();
+    //   console.log(data);
+    // },
   },
 };
 </script>
