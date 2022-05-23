@@ -1,7 +1,7 @@
 <template>
   <section id="container">
     <h2 id="title">MODIFICATION DU PROFIL</h2>
-    <div id="bloc">
+    <form id="bloc">
       <div id="photoProfil"></div>
 
       <div id="blockInput">
@@ -34,7 +34,7 @@
           />
         </div>
       </div>
-    </div>
+    </form>
 
     <div class="button">
       <button id="buttonSave" @click="changeProfileInfo">ENREGISTRER</button>

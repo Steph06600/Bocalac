@@ -291,6 +291,13 @@ export default {
   justify-content: center;
   align-items: center;
   gap: 5%;
+  background: white;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
 }
 .logoBocalac img {
   width: 300px;
