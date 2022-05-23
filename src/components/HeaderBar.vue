@@ -5,11 +5,25 @@
         <img src="../assets/img/canardBocalacContours.png" alt="" />
         <input type="text" placeholder="Rechercher" />
       </div>
-      <div id="picture" @click="settingStatut = !settingStatut">
+      <div
+        id="picture"
+        @click="
+          settingStatut1 = !settingStatut1;
+          showPage = !showPage;
+        "
+      >
         <p>Photo</p>
       </div>
     </nav>
-    <Setting v-if="settingStatut" class="setting"></Setting>
+    <div
+      v-show="showPage"
+      @click="
+        showPage = !showPage;
+        settingStatut1 = !settingStatut1;
+      "
+      class="allPage"
+    ></div>
+    <Setting v-if="settingStatut1" class="setting"></Setting>
   </header>
 </template>
 <script>
@@ -21,7 +35,8 @@ export default {
   },
   data() {
     return {
-      settingStatut: false,
+      settingStatut1: false,
+      showPage: false,
     };
   },
   methods: {},
@@ -75,5 +90,14 @@ input {
   border: 2px solid white;
   box-shadow: 3px 4px 3px grey;
   z-index: 1000;
+}
+
+.allPage {
+  background-color: black;
+  height: 600vh;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  opacity: 0.5;
 }
 </style>
