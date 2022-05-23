@@ -1,9 +1,8 @@
 <template>
-  <div class="body" @recupInfosUser="recupInfosUser">
+  <div class="body">
     <HeaderBar class="headerBar" />
     <AsideBar class="aside" />
-    <!-- <p>{{ nom }} {{ prenom }} {{ mail }}</p> -->
-    <router-view :nom="lastnameGet" :prenom="firstnameGet" :mail="emailGet" />
+    <router-view :nom="lastname" :prenom="firstname" :mail="email" />
   </div>
 </template>
 
@@ -17,29 +16,16 @@ const App = {
     AsideBar,
   },
 
-  // data() {
-  //   return {
-  //     nom: "",
-  //     prenom: "",
-  //     mail: "",
-  //   };
-  // },
-
-  // methods: {
-  //   recupInfosUser(getUserNom, getUserPrenom, getUserMail) {
-  //     this.nom = getUserNom;
-  //     this.prenom = getUserPrenom;
-  //     this.mail = getUserMail;
-  //     console.log("cc");
-  //   },
-  // },
   data() {
     return {
-      // récupération des données
-      firstnameGet: "",
-      lastnameGet: "",
-      emailGet: "",
+      firstname: "",
+      lastname: "",
+      email: "",
     };
+  },
+
+  mounted() {
+    this.getUser();
   },
 
   methods: {
@@ -59,20 +45,11 @@ const App = {
 
       const data = await response.json();
 
-      this.firstnameGet = data.firstname;
-      this.lastnameGet = data.lastname;
-      this.emailGet = data.email;
+      this.firstname = data.firstname;
+      this.lastname = data.lastname;
+      this.email = data.email;
 
-      console.log("cc");
-
-      // this.$emit(
-      //   "recupInfosUser",
-      //   this.lastnameGet,
-      //   this.firstnameGet,
-      //   this.emailGet
-      // );
-
-      // console.log(this.firstnameGet + this.lastnameGet + this.emailGet);
+      console.log(this.firstname + this.lastname + this.email);
     },
   },
 };

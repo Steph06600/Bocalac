@@ -7,18 +7,18 @@
       <div id="blockInput">
         <div id="blockPseudo">
           <div id="blocNom">
-            <label for="">Nom</label>
-            <input type="text" v-model="lastname" :placeholder="lastname" />
+            <label for="">{{ nom }}</label>
+            <input type="text" v-model="lastname" />
           </div>
 
           <div id="blocPrenom">
-            <label for="">Prénom</label>
-            <input type="text" v-model="firstname" :placeholder="firstname" />
+            <label for="">{{ prenom }}</label>
+            <input type="text" v-model="firstname" />
           </div>
         </div>
 
         <div id="blocDescription">
-          <label for="">Description</label>
+          <label for="">{{ mail }}</label>
           <input type="textarea" v-model="description" />
         </div>
       </div>
@@ -33,6 +33,8 @@
 
 <script>
 export default {
+  name: "ModifProfile",
+
   data() {
     return {
       page: "profile",
@@ -44,40 +46,11 @@ export default {
       saveData: [],
     };
   },
-  name: "ModifProfile",
 
-  /* Methods */
-  methods: {
-    saveNewDatas(e) {
-      let newLastname = this.lastname;
-      let newFirstname = this.firstname;
-      let newDescription = this.description;
-    },
-
-    /* API */
-    async modifProfile() {
-      const options = {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "bearer token",
-        },
-        body: JSON.stringify({
-          firstname: this.firstname,
-          lastname: this.lastname,
-          description: this.description,
-        }),
-      };
-
-      const response = await fetch(
-        " https://social-networkapi.osc-fr1.scalingo.io/demo/login ",
-        options
-      );
-      const data = await response.json();
-
-      console.log(response);
-      console.log(data);
-    },
+  props: {
+    nom: String,
+    prenom: String,
+    mail: String,
   },
 };
 </script>
