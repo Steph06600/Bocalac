@@ -44,7 +44,7 @@
           >
             voir les commentaires ({{ posts.length }})
           </button>
-          <!-- <button @click="commentaire">Commenter</button> -->
+          <button>Commenter</button>
           <button>Partager</button>
         </div>
       </div>
