@@ -3,20 +3,36 @@
     <figure>
       <img src="../assets/img/canardBocalacContours.png" alt="" />
       <figcaption>
-        <p>Prénom Nom</p>
+        <p>{{ prenomFigcation }} {{ nomFigcaption }}</p>
       </figcaption>
     </figure>
     <nav>
       <router-link to="/profile">Voir profil</router-link>
       <router-link to="/actus">Fil d'actualités</router-link>
       <router-link to="/setting">Paramètres</router-link>
-      <router-link to="/">Déconnexion</router-link>
+      <router-link @click="deconnexion" to="/">Déconnexion</router-link>
     </nav>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  inject: ["nom", "prenom"],
+  created() {
+    console.log(this.nom); // injected value
+  },
+  data() {
+    return {
+      nomFigcaption: this.nom,
+      prenomFigcation: this.prenom,
+    };
+  },
+  methods: {
+    deconnexion() {
+      localStorage.clear();
+    },
+  },
+};
 </script>
 
 <style scoped>

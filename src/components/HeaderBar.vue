@@ -11,9 +11,7 @@
           settingStatut1 = !settingStatut1;
           showPage = !showPage;
         "
-      >
-        <p>Photo</p>
-      </div>
+      ></div>
     </nav>
     <div
       v-show="showPage"
@@ -39,6 +37,7 @@ export default {
       showPage: false,
     };
   },
+
   methods: {},
 };
 </script>

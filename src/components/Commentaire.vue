@@ -1,16 +1,99 @@
 <template>
+  <!-- v-for="element in listCommentaires" :key="element._id" -->
+
   <div>
+<<<<<<< HEAD
     <input
       v-model="postCommentaire"
       type="text"
       placeholder="Ecrivez votre commentaire"
     />
     <button @click="publish" class="button">Publier</button>
+=======
+    <button @click="getcommentaire">afficher</button>
+
+    <div>
+      <input
+        v-model="postCommentaire"
+        id=""
+        type="text"
+        placeholder="Ecrivez votre commentaire"
+      />
+      <button @click="postComment">Publier</button>
+    </div>
+    <div v-for="element in listCommentaires" :key="element._id">
+      <p>{{ element.comments.content }}</p>
+    </div>
+>>>>>>> 15d6864565a8b3f270663aa1873950e8e02e7619
   </div>
+  <!-- 
+  element.comments.content -->
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      postCommentaire: "",
+      token: localStorage.getItem("token"),
+      listCommentaires: [],
+    };
+  },
+  props: {
+    id: String,
+  },
+
+  methods: {
+    // Créer un commentaire
+    async postComment() {
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "bearer " + localStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          postId: this.id,
+          content: this.postCommentaire,
+        }),
+      };
+
+      const response = await fetch(
+        "https://social-network-api.osc-fr1.scalingo.io/bocalac/post/comment",
+        options
+      );
+
+      const data = await response.json();
+      this.postCommentaire = "";
+
+      console.log(response);
+      console.log(data);
+
+      // if (response.status === 200) {
+      //   this.postCommentaire = "";
+      // }
+    },
+
+    //  Récupérer tous les posts
+    async getcommentaire() {
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const response = await fetch(
+        "https://social-network-api.osc-fr1.scalingo.io/bocalac/posts",
+        options
+      );
+
+      const data = await response.json();
+      this.listCommentaires = data.posts;
+      console.log(this.listCommentaires);
+    },
+  },
+};
 </script>
 
 <style scoped>

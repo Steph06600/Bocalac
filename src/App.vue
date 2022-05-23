@@ -1,8 +1,13 @@
 <template>
   <div class="body">
-    <HeaderBar class="headerBar" />
+    <HeaderBar class="headerBar" :nom="lastname" :prenom="firstname" />
     <AsideBar class="aside" />
-    <router-view :nom="lastname" :prenom="firstname" :mail="email" />
+    <router-view
+      :nom="lastname"
+      :prenom="firstname"
+      :mail="email"
+      :methodGetUser="getUser"
+    />
   </div>
 </template>
 
@@ -49,8 +54,17 @@ const App = {
       this.lastname = data.lastname;
       this.email = data.email;
 
+      console.log(response);
+      console.log(data);
       console.log(this.firstname + this.lastname + this.email);
     },
+  },
+
+  provide() {
+    return {
+      nom: this.lastname,
+      prenom: this.firstname,
+    };
   },
 };
 export default App;

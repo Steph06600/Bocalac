@@ -1,31 +1,43 @@
 <template>
   <section id="container">
     <h2 id="title">MODIFICATION DU PROFIL</h2>
-    <div id="bloc">
+    <form id="bloc">
       <div id="photoProfil"></div>
 
       <div id="blockInput">
         <div id="blockPseudo">
           <div id="blocNom">
-            <label for="">{{ nom }}</label>
-            <input type="text" v-model="lastname" />
+            <label for="">Votre nom : {{ nom }}</label>
+            <input
+              type="text"
+              v-model="lastname"
+              placeholder="Votre nouveau nom"
+            />
           </div>
 
           <div id="blocPrenom">
-            <label for="">{{ prenom }}</label>
-            <input type="text" v-model="firstname" />
+            <label for="">Votre prénom : {{ prenom }}</label>
+            <input
+              type="text"
+              v-model="firstname"
+              placeholder="Votre nouveau prénom"
+            />
           </div>
         </div>
 
         <div id="blocDescription">
-          <label for="">{{ mail }}</label>
-          <input type="textarea" v-model="description" />
+          <label for="">Votre e-mail : {{ mail }}</label>
+          <input
+            type="textarea"
+            v-model="email"
+            placeholder="Votre nouveau mail"
+          />
         </div>
       </div>
-    </div>
+    </form>
 
     <div class="button">
-      <button id="buttonSave">ENREGISTRER</button>
+      <button id="buttonSave" @click="changeProfileInfo">ENREGISTRER</button>
       <p>Vous avez enregistré</p>
     </div>
   </section>
@@ -41,7 +53,7 @@ export default {
       profilePicture: "",
       lastname: "",
       firstname: "",
-      description: "",
+      email: "",
       token: localStorage.getItem("token"),
       saveData: [],
     };
@@ -51,6 +63,45 @@ export default {
     nom: String,
     prenom: String,
     mail: String,
+    methodGetUser: Function,
+  },
+
+  methods: {
+    async changeProfileInfo() {
+      const options = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "bearer " + localStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          firstname: this.firstname,
+          lastname: this.lastname,
+          email: this.email,
+        }),
+      };
+
+      const response = await fetch(
+        "https://social-network-api.osc-fr1.scalingo.io/bocalac/user",
+        options
+      );
+
+      const data = await response.json();
+
+      console.log(response);
+      console.log(data);
+
+      this.methodGetUser();
+
+      this.firstname = "";
+      this.lastname = "";
+      this.email = "";
+      // this.prenom = data.firstname;
+      // this.nom = data.lastname;
+      // this.mail = data.email;
+
+      // console.log(this.firstname + this.lastname + this.email);
+    },
   },
 };
 </script>
