@@ -12,11 +12,11 @@
         <div id="blocNom">
           <div id="lastname">
             <label for="">Nom</label>
-            <input type="text" v-model="lastname" />
+            <input type="text" v-model="lastname" :placeholder="lastname" />
           </div>
           <div id="blocPrenom">
             <label for="">Prénom</label>
-            <input type="text" v-model="firstname" />
+            <input type="text" v-model="firstname" :placeholder="firstname" />
           </div>
         </div>
         <div id="blocDescription">
@@ -25,33 +25,58 @@
         </div>
       </div>
     </div>
-    <button id="buttonSave">ENREGISTRER</button>
+    <button id="buttonSave" @click="saveNewDatas">ENREGISTRER</button>
     <p>Vous avez enregistré</p>
   </section>
 </template>
 
 <script>
 export default {
-  name: "ModifProfile",
-  // methods: {
-  //   changePageToModifProfile() {
-  //     this.page = "edit";
-  //   },
-  // changePageToProfile() {
-  //   this.page = "profile";
-  // },
-  /* SAUVEGARDE DES DONNEES */
-
   data() {
     return {
-      // closeEditProfile: true,
       page: "profile",
       profilePicture: "",
       lastname: "",
       firstname: "",
       description: "",
+      token: localStorage.getItem("token"),
       saveData: [],
     };
+  },
+  name: "ModifProfile",
+
+  /* Methods */
+  methods: {
+    saveNewDatas(e) {
+      let newLastname = this.lastname;
+      let newFirstname = this.firstname;
+      let newDescription = this.description;
+    },
+
+    /* API */
+    async modifProfile() {
+      const options = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "bearer token",
+        },
+        body: JSON.stringify({
+          firstname: this.firstname,
+          lastname: this.lastname,
+          description: this.description,
+        }),
+      };
+
+      const response = await fetch(
+        " https://social-networkapi.osc-fr1.scalingo.io/demo/login ",
+        options
+      );
+      const data = await response.json();
+
+      console.log(response);
+      console.log(data);
+    },
   },
 };
 </script>
