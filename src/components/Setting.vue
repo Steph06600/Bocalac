@@ -3,7 +3,7 @@
     <figure>
       <img src="../assets/img/canardBocalacContours.png" alt="" />
       <figcaption>
-        <p>Prénom Nom</p>
+        <p>{{ prenomFigcation }} {{ nomFigcaption }}</p>
       </figcaption>
     </figure>
     <nav>
@@ -17,6 +17,16 @@
 
 <script>
 export default {
+  inject: ["nom", "prenom"],
+  created() {
+    console.log(this.nom); // injected value
+  },
+  data() {
+    return {
+      nomFigcaption: this.nom,
+      prenomFigcation: this.prenom,
+    };
+  },
   methods: {
     deconnexion() {
       localStorage.clear();

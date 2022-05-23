@@ -102,6 +102,11 @@ input {
   display: none;
 }
 
+.editPost input {
+  outline: none;
+  border: 2px solid white;
+}
+
 .img {
   width: 34px;
   height: 34px;
@@ -142,5 +147,12 @@ button {
   border-radius: 10px;
   color: #474e58;
   padding: 1% 3%;
+  cursor: pointer;
+}
+
+button:hover {
+  border: 2px solid #5adfbc;
+  background: #5adfbc;
+  color: white;
 }
 </style>
