@@ -2,7 +2,7 @@
   <!-- v-for="element in listCommentaires" :key="element._id" -->
 
   <div>
-    <button @click="getcommentaire">Commenter</button>
+    <button @click="getcommentaire">afficher</button>
 
     <div>
       <input
