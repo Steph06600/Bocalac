@@ -46,13 +46,8 @@
           >
             voir les commentaires ({{ posts.length }})
           </button>
-<<<<<<< HEAD
           <button @click="commentaire" class="buttonHover">Commenter</button>
           <button class="buttonHover">Partager</button>
-=======
-          <button>Commenter</button>
-          <button>Partager</button>
->>>>>>> 15d6864565a8b3f270663aa1873950e8e02e7619
         </div>
       </div>
       <Commentaire
