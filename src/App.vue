@@ -1,6 +1,6 @@
 <template>
   <div class="body">
-    <HeaderBar class="headerBar" />
+    <HeaderBar class="headerBar" :nom="lastname" :prenom="firstname" />
     <AsideBar class="aside" />
     <router-view
       :nom="lastname"
@@ -58,6 +58,13 @@ const App = {
       console.log(data);
       console.log(this.firstname + this.lastname + this.email);
     },
+  },
+
+  provide() {
+    return {
+      nom: this.lastname,
+      prenom: this.firstname,
+    };
   },
 };
 export default App;
