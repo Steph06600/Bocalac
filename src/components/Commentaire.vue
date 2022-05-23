@@ -2,14 +2,6 @@
   <!-- v-for="element in listCommentaires" :key="element._id" -->
 
   <div>
-<<<<<<< HEAD
-    <input
-      v-model="postCommentaire"
-      type="text"
-      placeholder="Ecrivez votre commentaire"
-    />
-    <button @click="publish" class="button">Publier</button>
-=======
     <button @click="getcommentaire">afficher</button>
 
     <div>
@@ -25,7 +17,6 @@
     <div v-for="element in listCommentaires" :key="element._id">
       <p v-for="ele in element.comments" :key="ele._id">{{ ele.content }}</p>
     </div>
->>>>>>> 15d6864565a8b3f270663aa1873950e8e02e7619
   </div>
   <!-- 
   element.comments.content -->
