@@ -3,7 +3,7 @@
     <figure>
       <img src="../assets/img/canardBocalacContours.png" alt="" />
       <figcaption>
-        <p>{{ prenomFigcation }} {{ nomFigcaption }}</p>
+        <p>{{ getLastname() }} {{ getFirstname() }}</p>
       </figcaption>
     </figure>
     <nav>
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  inject: ["nom", "prenom"],
+  inject: ["getLastname", "getFirstname"],
   created() {
     console.log(this.nom); // injected value
   },
