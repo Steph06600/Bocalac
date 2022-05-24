@@ -86,16 +86,6 @@ export default {
   overflow-y: scroll;
 }
 
-.scroll-div::-webkit-scrollbar-thumb {
-  background-color: #babac0;
-  border-radius: 16px;
-  border: 4px solid #fff;
-}
-
-.scroll-div::-webkit-scrollbar-button {
-  display: none;
-}
-
 .publier {
   padding-bottom: 7px;
 }
