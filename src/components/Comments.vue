@@ -59,7 +59,9 @@
       <Commentaire
         v-if="openCommentPostId === element._id"
         :id="element._id"
+        :comments="element.comments"
         class=""
+        @new-comment="getpost"
       />
     </div>
 

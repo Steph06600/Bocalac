@@ -4,7 +4,7 @@
   <div>
     <!-- <button @click="getcommentaire()">afficher les com's</button> -->
 
-    <div>
+    <div class="publier">
       <input
         v-model="postCommentaire"
         id=""
@@ -14,9 +14,9 @@
       <button @click="postComment()">Publier</button>
     </div>
     <div class="scroll-div">
-      <div v-for="element in listCommentaires" :key="element._id">
-        <p v-for="ele in element.comments" :key="ele._id">
-          <span>{{ ele.firstname }} : </span> {{ ele.content }}
+      <div v-for="comment in comments" :key="comment._id">
+        <p>
+          <span>{{ comment.firstname }} : </span> {{ comment.content }}
         </p>
       </div>
     </div>
@@ -35,12 +35,12 @@ export default {
       listCommentaires: [],
     };
   },
+
+  emits: ["new-comment"],
+
   props: {
     id: String,
-  },
-
-  mounted() {
-    this.getcommentaire();
+    comments: Array,
   },
 
   methods: {
@@ -69,28 +69,11 @@ export default {
       console.log(response);
       console.log(data);
 
+      this.$emit("new-comment");
+
       // if (response.status === 200) {
       //   this.postCommentaire = "";
       // }
-    },
-
-    //  Récupérer tous les posts
-    async getcommentaire() {
-      const options = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-
-      const response = await fetch(
-        "https://social-network-api.osc-fr1.scalingo.io/bocalac/posts",
-        options
-      );
-
-      const data = await response.json();
-      this.listCommentaires = data.posts;
-      console.log(this.listCommentaires);
     },
   },
 };
@@ -98,8 +81,13 @@ export default {
 
 <style scoped>
 .scroll-div {
-  height: 220px;
+  height: fit-content;
+  max-height: 220px;
   overflow-y: scroll;
+}
+
+.publier {
+  padding-bottom: 7px;
 }
 
 button {
