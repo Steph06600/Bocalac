@@ -9,7 +9,9 @@
           />
           <div>
             <p class="firstname">{{ element.firstname }}</p>
-            <p class="date">{{ element.date.substring(0, 10) }}</p>
+            <p class="date">
+              {{ new Date(element.date).toLocaleDateString() }}
+            </p>
           </div>
         </div>
         <div>
