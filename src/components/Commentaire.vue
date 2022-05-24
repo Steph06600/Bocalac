@@ -1,9 +1,5 @@
 <template>
-  <!-- v-for="element in listCommentaires" :key="element._id" -->
-
   <div>
-    <!-- <button @click="getcommentaire()">afficher les com's</button> -->
-
     <div class="publier">
       <input
         v-model="postCommentaire"
@@ -14,6 +10,7 @@
       <button @click="postComment()">Publier</button>
     </div>
     <div class="scroll-div">
+      <!-- boucle des comment (= commentaires) dans les comments (= les posts publiés) -->
       <div v-for="comment in comments" :key="comment._id">
         <p>
           <span>{{ comment.firstname }} : </span> {{ comment.content }}
@@ -45,6 +42,8 @@ export default {
 
   methods: {
     // Créer un commentaire
+    // fucnction promesse > publication de commentaires > para id de chaque post
+    // para id appelé @click="postComment() sur le bouton publier
     async postComment() {
       const options = {
         method: "POST",
