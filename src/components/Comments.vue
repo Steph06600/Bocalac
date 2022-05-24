@@ -9,7 +9,7 @@
           />
           <div>
             <p class="firstname">{{ element.firstname }}</p>
-            <p class="date">{{ element.date }}</p>
+            <p class="date">{{ element.date.substring(5, 10) }}</p>
           </div>
         </div>
         <div>
@@ -64,17 +64,7 @@
         @new-comment="getpost"
       />
     </div>
-
-    <!-- <div v-for="element in posts" :key="element.id">
-      <p class="" @click="EditPost">
-        {{ element.firstname }} {{ element.lastname }}
-      </p>
-      {{ element.content }}
-    </div> -->
   </div>
-  <!-- li v-for="element in posts" :key="element" element.posts[0].content -->
-  <!-- v-for="(element, index) in posts" :key="index" -->
-  <!-- v-for="(element, index) in posts" :key="element.id" -->
 </template>
 
 <script>
@@ -102,9 +92,6 @@ export default {
     };
   },
 
-  // props: {
-  //   post: String,
-  // },
   mounted() {
     this.getpost();
   },

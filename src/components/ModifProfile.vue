@@ -7,7 +7,7 @@
       <div id="blockInput">
         <div id="blockPseudo">
           <div id="blocNom">
-            <label for="">Votre nom : {{ nom }}</label>
+            <label for="">Nom : {{ nom }}</label>
             <input
               type="text"
               v-model="lastname"
@@ -16,7 +16,7 @@
           </div>
 
           <div id="blocPrenom">
-            <label for="">Votre prénom : {{ prenom }}</label>
+            <label for="">Prénom : {{ prenom }}</label>
             <input
               type="text"
               v-model="firstname"
@@ -26,7 +26,7 @@
         </div>
 
         <div id="blocDescription">
-          <label for="">Votre e-mail : {{ mail }}</label>
+          <label for="">E-mail : {{ mail }}</label>
           <input
             type="textarea"
             v-model="email"
