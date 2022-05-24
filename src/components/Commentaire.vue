@@ -2,13 +2,7 @@
   <!-- v-for="element in listCommentaires" :key="element._id" -->
 
   <div>
-    <input
-      v-model="postCommentaire"
-      type="text"
-      placeholder="Ecrivez votre commentaire"
-    />
-    <button @click="publish" class="button">Publier</button>
-    <button @click="getcommentaire">afficher</button>
+    <!-- <button @click="getcommentaire()">afficher les com's</button> -->
 
     <div>
       <input
@@ -17,12 +11,17 @@
         type="text"
         placeholder="Ecrivez votre commentaire"
       />
-      <button @click="postComment">Publier</button>
+      <button @click="postComment()">Publier</button>
     </div>
-    <div v-for="element in listCommentaires" :key="element._id">
-      <p>{{ element.comments.content }}</p>
+    <div class="scroll-div">
+      <div v-for="element in listCommentaires" :key="element._id">
+        <p v-for="ele in element.comments" :key="ele._id">
+          <span>{{ ele.firstname }} : </span> {{ ele.content }}
+        </p>
+      </div>
     </div>
   </div>
+
   <!-- 
   element.comments.content -->
 </template>
@@ -38,6 +37,10 @@ export default {
   },
   props: {
     id: String,
+  },
+
+  mounted() {
+    this.getcommentaire();
   },
 
   methods: {
@@ -94,7 +97,41 @@ export default {
 </script>
 
 <style scoped>
+.scroll-div {
+  height: 220px;
+  overflow-y: scroll;
+}
+
 button {
+  cursor: pointer;
+}
+input {
+  border-radius: 5px;
+}
+
+p {
+  border: 2.5px solid #5adfbc;
+  border-radius: 7px;
+  width: fit-content;
+  padding: 0.5% 1%;
+  background-color: white;
+  color: #474e58;
+}
+span {
+  font-weight: bold;
+}
+
+button {
+  border-radius: 10px;
+  border: 2px solid #5adfbc;
+  background-color: white;
+}
+
+button:hover {
+  border-radius: 10px;
+  border: 2px solid #5adfbc;
+  background-color: #5adfbc;
+  color: white;
   cursor: pointer;
 }
 </style>

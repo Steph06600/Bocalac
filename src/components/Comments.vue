@@ -1,8 +1,5 @@
 <template>
   <div class="content">
-    <button class="clickbtn buttonHover" @click="getpost">
-      Afficher les posts
-    </button>
     <div class="all" v-for="element in posts" :key="element._id">
       <div class="topComment">
         <div class="Profil">
@@ -16,7 +13,17 @@
           </div>
         </div>
         <div>
-          <button class="dot">● ● ●</button>
+          <button
+            class="dot"
+            @click="openSuppr = openSuppr === element._id ? null : element._id"
+          >
+            ● ● ●
+          </button>
+          <div>
+            <button v-if="openSuppr === element._id" :id="element._id" class="">
+              Suppr
+            </button>
+          </div>
         </div>
       </div>
 
@@ -42,11 +49,10 @@
               openCommentPostId =
                 openCommentPostId === element._id ? null : element._id
             "
-            class="commentaire"
+            class="buttonHover"
           >
-            voir les commentaires ({{ posts.length }})
+            Commenter
           </button>
-          <button @click="commentaire" class="buttonHover">Commenter</button>
           <button class="buttonHover">Partager</button>
         </div>
       </div>
@@ -90,12 +96,16 @@ export default {
       page: 1,
       totalPages: 1,
       openCommentPostId: null,
+      openSuppr: null,
     };
   },
 
   // props: {
   //   post: String,
   // },
+  mounted() {
+    this.getpost();
+  },
 
   methods: {
     async addLike(id) {
@@ -213,10 +223,6 @@ export default {
   padding-left: 5%;
 }
 
-.clickbtn {
-  width: 15%;
-  color: #474e58;
-}
 /*  TOP  */
 .topComment {
   display: flex;
@@ -296,13 +302,6 @@ button {
   border: 2px solid #5adfbc;
   background-color: #5adfbc;
   color: white;
-  cursor: pointer;
-}
-
-.commentaire {
-  border: none;
-  color: #e0e0e0;
-  background-color: #474e58;
   cursor: pointer;
 }
 
