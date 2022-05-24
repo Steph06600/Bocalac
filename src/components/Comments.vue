@@ -195,7 +195,7 @@ export default {
 .all {
   background-color: #474e58;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 0px 20px;
   border: 3px solid white;
   box-shadow: 2px 4px 3px grey;

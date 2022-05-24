@@ -7,8 +7,8 @@
       <div class="textInfosProfil">
         <p>{{ nom }} {{ prenom }}</p>
         <div class="statut">
-          <p>Statut</p>
-          <div class="pastilleStatut">vert</div>
+          <p>Statut:</p>
+          <div class="pastilleStatut"></div>
         </div>
         <p>Ceci est une petite description / biographie</p>
       </div>
@@ -74,6 +74,13 @@ export default {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.pastilleStatut {
+  background-color: green;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
 }
 
 p {

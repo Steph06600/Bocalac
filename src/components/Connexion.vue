@@ -24,7 +24,11 @@
 
           <div class="alignMdpForgetMdp">
             <label class="labelMdp" for="mdp">Mot de passe </label>
-            <a href="">mot de passe oublié? </a>
+            <a
+              href="https://www.sebastien-martinez.com/problemes-de-memoire/"
+              target="_blank"
+              >mot de passe oublié?
+            </a>
           </div>
           <input type="password" name="mdp" id="mdp" v-model="mdp" required />
           <br />
@@ -353,8 +357,17 @@ export default {
   padding-right: 80px;
   color: white;
 }
+
 .alignMdpForgetMdp a {
   color: white;
+  font-size: 15px;
+  font-weight: 200;
+  text-decoration: none;
+  font-style: italic;
+}
+
+.alignMdpForgetMdp a:hover {
+  color: #5adfbc;
   font-size: 15px;
   font-weight: 200;
   text-decoration: none;
