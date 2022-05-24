@@ -46,6 +46,7 @@ export default {
     changeSettingStatut(showSetting) {
       if (showSetting) {
         this.showPage = false;
+        this.settingStatut = false;
       }
     },
   },

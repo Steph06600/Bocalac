@@ -1,5 +1,5 @@
 <template>
-  <div v-show="showSetting" class="containSetting">
+  <div class="containSetting">
     <figure>
       <img src="../assets/img/canardBocalacContours.png" alt="" />
       <figcaption>
