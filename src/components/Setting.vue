@@ -1,5 +1,5 @@
 <template>
-  <div class="containSetting">
+  <div v-show="showSetting" class="containSetting">
     <figure>
       <img src="../assets/img/canardBocalacContours.png" alt="" />
       <figcaption>
@@ -10,7 +10,14 @@
       <router-link to="/profile">Voir profil</router-link>
       <router-link to="/actus">Fil d'actualités</router-link>
       <router-link to="/setting">Paramètres</router-link>
-      <router-link @click="deconnexion" to="/">Déconnexion</router-link>
+      <router-link
+        @click="
+          deconnexion;
+          showSetting = !showSetting;
+        "
+        to="/"
+        >Déconnexion</router-link
+      >
     </nav>
   </div>
 </template>
@@ -25,6 +32,7 @@ export default {
     return {
       nomFigcaption: this.nom,
       prenomFigcation: this.prenom,
+      showSetting: true,
     };
   },
   methods: {
