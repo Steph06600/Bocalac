@@ -60,6 +60,7 @@
       </div>
 
       <!-- affichage v-if ==> commentaires de posts -->
+      <!-- :comments="element.comments" == passage en props du post  -->
       <Commentaire
         v-if="openCommentPostId === element._id"
         :id="element._id"
