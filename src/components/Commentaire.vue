@@ -10,10 +10,11 @@
       <button @click="postComment()">Publier</button>
     </div>
     <div class="scroll-div">
-      <!-- boucle des comment (= commentaires) dans les comments (= les posts publiés) -->
-      <div v-for="comment in comments" :key="comment._id">
+      <!-- boucle des commentaires (element.content) 
+      dans le tableauComments contenant tous les comments ==> content(commentaires)-->
+      <div v-for="element in tableauComments" :key="element._id">
         <p>
-          <span>{{ comment.firstname }} : </span> {{ comment.content }}
+          <span>{{ element.firstname }} : </span> {{ element.content }}
         </p>
       </div>
     </div>
@@ -37,7 +38,7 @@ export default {
 
   props: {
     id: String,
-    comments: Array,
+    tableauComments: Array,
   },
 
   methods: {

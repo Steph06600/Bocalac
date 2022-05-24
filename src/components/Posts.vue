@@ -60,11 +60,12 @@
       </div>
 
       <!-- affichage v-if ==> commentaires de posts -->
-      <!-- :comments="element.comments" == passage en props du post  -->
+      <!-- :tableauComments="element.comments" == 
+          passage en props ==> tableauComments: Array, -->
       <Commentaire
         v-if="openCommentPostId === element._id"
         :id="element._id"
-        :comments="element.comments"
+        :tableauComments="element.comments"
         class=""
         @new-comment="getpost"
       />
