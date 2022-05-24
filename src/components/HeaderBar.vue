@@ -8,7 +8,7 @@
       <div
         id="picture"
         @click="
-          settingStatut1 = !settingStatut1;
+          settingStatut = !settingStatut;
           showPage = !showPage;
         "
       ></div>
@@ -17,11 +17,15 @@
       v-show="showPage"
       @click="
         showPage = !showPage;
-        settingStatut1 = !settingStatut1;
+        settingStatut = !settingStatut;
       "
       class="allPage"
     ></div>
-    <Setting v-if="settingStatut1" class="setting"></Setting>
+    <Setting
+      @affichage="changeSettingStatut"
+      v-if="settingStatut"
+      class="setting"
+    ></Setting>
   </header>
 </template>
 <script>
@@ -33,12 +37,18 @@ export default {
   },
   data() {
     return {
-      settingStatut1: false,
+      settingStatut: false,
       showPage: false,
     };
   },
 
-  methods: {},
+  methods: {
+    changeSettingStatut(showSetting) {
+      if (showSetting) {
+        this.showPage = false;
+      }
+    },
+  },
 };
 </script>
 
