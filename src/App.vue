@@ -23,8 +23,8 @@ const App = {
 
   data() {
     return {
-      firstname: "",
-      lastname: "",
+      firstname: "Ambre",
+      lastname: "Rizzo",
       email: "",
     };
   },
