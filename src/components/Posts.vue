@@ -9,7 +9,7 @@
           />
           <div>
             <p class="firstname">{{ element.firstname }}</p>
-            <p class="date">{{ element.date.substring(5, 10) }}</p>
+            <p class="date">{{ element.date.substring(0, 10) }}</p>
           </div>
         </div>
         <div>
@@ -56,6 +56,8 @@
           <button class="buttonHover">Partager</button>
         </div>
       </div>
+
+      <!-- affichage v-if ==> commentaires de posts -->
       <Commentaire
         v-if="openCommentPostId === element._id"
         :id="element._id"
@@ -76,11 +78,10 @@ export default {
     Commentaire,
   },
 
-  name: "comments",
+  name: "Posts",
 
   data() {
     return {
-      pseudo: "",
       comments: "",
       like: 0,
       dislike: 0,
@@ -92,10 +93,12 @@ export default {
     };
   },
 
+  // afficher getpost une fois publié et recuperé
   mounted() {
     this.getpost();
   },
 
+  // Ajouter un like
   methods: {
     async addLike(id) {
       const options = {
@@ -149,6 +152,7 @@ export default {
     //   this. = e.target.value;
     // }
 
+    // Récupérer tous les posts
     async getpost() {
       const options = {
         method: "GET",
@@ -168,26 +172,6 @@ export default {
       console.log(data);
       console.log(this.posts);
     },
-
-    // async commentaire() {
-    //   const options = {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       postId: this.id,
-    //       content: this.content,
-    //     }),
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   };
-
-    //   const response = await fetch(
-    //     "https://social-network-api.osc-fr1.scalingo.io/bocalac/post/comment",
-    //     options
-    //   );
-    //   const data = await response.json();
-    //   console.log(data);
-    // },
   },
 };
 </script>
