@@ -86,6 +86,7 @@ export default {
   overflow-y: scroll;
 }
 
+<<<<<<< HEAD
 .scroll-div::-webkit-scrollbar-thumb {
   background-color: #babac0 !important;
   border-radius: 16px !important;
@@ -96,6 +97,8 @@ export default {
   display: none !important;
 }
 
+=======
+>>>>>>> c8c239b79cb63d192e8ee3509c80c73d6e1e6c78
 .publier {
   padding-bottom: 7px;
 }
