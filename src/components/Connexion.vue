@@ -244,7 +244,7 @@ export default {
       }
 
       // Navigation vers une autres page avec router.push
-      this.$router.push("/actus");
+      this.$router.replace("/actus");
       this.email = "";
       this.mdp = "";
     },

@@ -69,10 +69,6 @@ export default {
       console.log(data);
 
       this.$emit("new-comment");
-
-      // if (response.status === 200) {
-      //   this.postCommentaire = "";
-      // }
     },
   },
 };

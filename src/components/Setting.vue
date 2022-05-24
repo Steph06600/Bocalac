@@ -38,6 +38,7 @@ export default {
   methods: {
     deconnexion() {
       localStorage.clear();
+      this.$emit("affichage", this.showSetting);
     },
   },
 };
