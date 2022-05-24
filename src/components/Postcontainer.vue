@@ -1,18 +1,18 @@
 <template>
   <div class="content">
     <EditPost />
-    <Comments class="comments" />
+    <Posts class="comments" />
   </div>
 </template>
 
 <script>
-import Comments from "@/components/Comments.vue";
+import Posts from "@/components/Posts.vue";
 import EditPost from "@/components/EditPost.vue";
 
 export default {
   name: "",
   components: {
-    Comments,
+    Posts,
     EditPost,
   },
 };
