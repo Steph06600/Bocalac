@@ -14,6 +14,7 @@
         @click="
           deconnexion();
           showSetting = !showSetting;
+          say('Voulez vous vous déconnecter');
         "
         to="/"
         >Déconnexion</router-link
@@ -39,6 +40,10 @@ export default {
     deconnexion() {
       localStorage.clear();
       this.$emit("affichage", this.showSetting);
+    },
+
+    say(message) {
+      confirm(message);
     },
   },
 };
