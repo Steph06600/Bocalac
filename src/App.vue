@@ -23,8 +23,8 @@ const App = {
 
   data() {
     return {
-      firstname: "Ambre",
-      lastname: "Rizzo",
+      firstname: "",
+      lastname: "",
       email: "",
     };
   },
@@ -62,8 +62,12 @@ const App = {
 
   provide() {
     return {
-      nom: this.lastname,
-      prenom: this.firstname,
+      getLastname: () => {
+        return this.lastname;
+      },
+      getFirstname: () => {
+        return this.firstname;
+      },
     };
   },
 };

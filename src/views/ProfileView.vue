@@ -77,7 +77,7 @@ export default {
 }
 
 .pastilleStatut {
-  background-color: green;
+  background-color: #06d406;
   width: 10px;
   height: 10px;
   border-radius: 10px;
