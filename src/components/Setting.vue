@@ -38,10 +38,7 @@ export default {
   methods: {
     deconnexion() {
       localStorage.clear();
-      // const deconnexion = success;
-      // if (deconnexion.success === true) {
-      //   return alert("coucou");
-      // }
+      this.$emit("affichage", this.showSetting);
     },
   },
 };
