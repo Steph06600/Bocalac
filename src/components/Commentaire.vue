@@ -87,13 +87,13 @@ export default {
 }
 
 .scroll-div::-webkit-scrollbar-thumb {
-  background-color: #babac0;
-  border-radius: 16px;
-  border: 4px solid #fff;
+  background-color: #babac0 !important;
+  border-radius: 16px !important;
+  border: 4px solid #fff !important;
 }
 
 .scroll-div::-webkit-scrollbar-button {
-  display: none;
+  display: none !important;
 }
 
 .publier {

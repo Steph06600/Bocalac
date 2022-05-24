@@ -12,7 +12,7 @@
       <router-link to="/setting">Paramètres</router-link>
       <router-link
         @click="
-          deconnexion;
+          deconnexion();
           showSetting = !showSetting;
         "
         to="/"
