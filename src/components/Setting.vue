@@ -10,15 +10,7 @@
       <router-link to="/profile">Voir profil</router-link>
       <router-link to="/actus">Fil d'actualités</router-link>
       <router-link to="/setting">Paramètres</router-link>
-      <router-link
-        @click="
-          deconnexion();
-          showSetting = !showSetting;
-          say('Voulez vous vous déconnecter');
-        "
-        to="/"
-        >Déconnexion</router-link
-      >
+      <p @click="say('Voulez vous vous déconnecter ?')">Déconnexion</p>
     </nav>
   </div>
 </template>
@@ -43,7 +35,13 @@ export default {
     },
 
     say(message) {
-      confirm(message);
+      const result = confirm(message);
+      if (result === true) {
+        this.deconnexion();
+        this.showSetting = !this.showSetting;
+        this.$router.replace("/");
+      } else {
+      }
     },
   },
 };
@@ -212,5 +210,14 @@ a {
   padding: 4% 0;
   width: 100%;
   border-top: 1px solid white;
+}
+
+p {
+  text-decoration: none;
+  color: white;
+  padding: 4% 0;
+  width: 100%;
+  border-top: 1px solid white;
+  cursor: pointer;
 }
 </style>
